@@ -1,0 +1,3 @@
+/home/pedro0210/Projects/AsteroidsPthreads/build/CMakeFiles/main.dir
+/home/pedro0210/Projects/AsteroidsPthreads/build/CMakeFiles/edit_cache.dir
+/home/pedro0210/Projects/AsteroidsPthreads/build/CMakeFiles/rebuild_cache.dir
