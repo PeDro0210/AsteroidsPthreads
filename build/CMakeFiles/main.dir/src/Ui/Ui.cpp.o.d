@@ -1,8 +1,9 @@
-CMakeFiles/main.dir/src/main.cpp.o: \
-  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/main.cpp \
-  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameManager/GameManager.h \
-  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameManager/../GameObjects/MovableObjects/MovableObjects.h \
-  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameManager/../GameObjects/MovableObjects/../Util/OrientationEnum.h \
+CMakeFiles/main.dir/src/Ui/Ui.cpp.o: \
+  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/Ui/Ui.cpp \
+  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/Ui/Ui.h \
+  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/Ui/../GameManager/GameManager.h \
+  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/Ui/../GameManager/../GameObjects/MovableObjects/MovableObjects.h \
+  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/Ui/../GameManager/../GameObjects/MovableObjects/../Util/OrientationEnum.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/string \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__algorithm/max.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__algorithm/comp.h \
@@ -905,17 +906,8 @@ CMakeFiles/main.dir/src/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/cstdarg \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__memory/temp_value.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__split_buffer \
-  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/Ui/Ui.h \
-  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/Ui/../GameManager/GameManager.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/ncurses.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/ncurses_dll.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/AvailabilityMacros.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/unctrl.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/curses.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/unistd.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/sys/unistd.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_posix_vdisable.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/sys/select.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/sys/_select.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_uuid_t.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/gethostuuid.h
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/curses.h
