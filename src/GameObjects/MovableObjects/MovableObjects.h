@@ -28,10 +28,8 @@ public:
   ~MovableObject();
 
   // For managing the position
-  void moveRight();
-  void moveLeft();
-  void moveUp();
-  void moveDown();
+  void MoveFoward();
+  void MoveBackward();
 
   // Getter for position
   std::vector<int> getPos() const;
