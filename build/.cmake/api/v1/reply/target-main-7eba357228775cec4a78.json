@@ -31,13 +31,13 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 10,
+				"line" : 11,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 11,
+				"line" : 12,
 				"parent" : 0
 			}
 		]
@@ -63,7 +63,8 @@
 			"sourceIndexes" : 
 			[
 				0,
-				1
+				1,
+				2
 			]
 		}
 	],
@@ -103,7 +104,8 @@
 			"sourceIndexes" : 
 			[
 				0,
-				1
+				1,
+				2
 			]
 		}
 	],
@@ -119,6 +121,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/Ui/Ui.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/GameObjects/MovableObjects/MovableObject.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

@@ -1,14 +1,14 @@
 #ifndef MOVABLE_OBJECTS
 #define MOVABLE_OBJECTS
 
+#include "../../GameManager/GameManager.h"
 #include "../Util/OrientationEnum.h"
+#include "ncurses.h"
 #include <string>
 #include <vector>
 
 class MovableObject {
 private:
-  // TODO: add limitations as properties;
-
   int x_pos;
   int y_pos;
 
@@ -16,14 +16,17 @@ private:
 
   Orientation orientation;
 
-  std::string icon;
+  char icon = 'x';
+
+  screenSettings settings;
 
   // Keep object within grid limits
   void keepOnLimits();
 
 public:
   // Constructor
-  MovableObject(int x, int y, Orientation orientation);
+  MovableObject(int x, int y, Orientation orientation,
+                const screenSettings &settings);
 
   ~MovableObject();
 
@@ -40,7 +43,10 @@ public:
   // The getter for destroyed status
   bool isDestroyed() const;
 
-  std::string render();
+  // render the icon
+  void render();
+
+  void erase();
 };
 
 class Asteroid : public MovableObject {
@@ -53,12 +59,12 @@ public:
 
 class littleAsteroid : public Asteroid {
 private:
-  std::string icon = "o";
+  char icon = 'o';
 };
 
 class bigAsteroid : public Asteroid {
 private:
-  std::string icon = "0";
+  char icon = '0';
 
 public:
   void splitAsteroid();
@@ -73,7 +79,7 @@ private:
    * FacingLeft = "<"
    * FacingRight = ">"
    */
-  std::string icon = "A";
+  char icon = 'A';
   Orientation orientation = FacingUp;
   int lifes = 3;
 
@@ -97,6 +103,14 @@ public:
 class Projectile : public MovableObject {
 private:
   int id;
+  /*
+   * Icon based on orientation:
+   * FacingUp = "|"
+   * FacingDown = "|"
+   * FacingLeft = "-"
+   * FacingRight = "-"
+   */
+  char icon = '|';
 
 public:
   Projectile(Orientation orientation);

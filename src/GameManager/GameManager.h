@@ -1,7 +1,6 @@
 #ifndef GAME_MANAGER
 #define GAME_MANAGER
 
-#include "../GameObjects/MovableObjects/MovableObjects.h"
 #include <vector>
 
 struct screenSettings {
@@ -14,8 +13,7 @@ struct screenSettings {
       : startX(x), startY(y), boxWidth(width), boxHeight(height) {}
 };
 
-void overlappingChecker(
-    std::vector<MovableObject> objects); // PointSetter will be called in here
+// TODO:make overlapping function
 
 void pointSetters(int id);
 

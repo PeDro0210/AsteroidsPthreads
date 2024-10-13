@@ -1,10 +1,11 @@
 #include "GameManager/GameManager.h"
+#include "GameObjects/MovableObjects/MovableObjects.h"
 #include "Ui/Ui.h"
 #include <ncurses.h>
 #include <pthread.h>
 #include <unistd.h>
 
-pthread_mutex_t mutex;
+pthread_mutex_t print_mutex;
 
 int scores[2] = {0, 0};
 
@@ -17,13 +18,12 @@ void *uiRenderLoop(void *arg) {
   auto *ui_manager = new UiManagers(*screen);
 
   while (true) {
-    pthread_mutex_lock(&mutex);
-    clear();
+    pthread_mutex_lock(&print_mutex);
     ui_manager->gameDisplay();
     ui_manager->scoreDisplay(scores);
     //* Putting all the code for the logic
     refresh();
-    pthread_mutex_unlock(&mutex);
+    pthread_mutex_unlock(&print_mutex);
 
     usleep(33333);
   }
@@ -32,26 +32,36 @@ void *uiRenderLoop(void *arg) {
 
 void *playerRenderLoop(void *) {
   while (true) {
-    pthread_mutex_lock(&mutex);
-    clear();
+    pthread_mutex_lock(&print_mutex);
     //* Putting all the code for the logic
     refresh();
-    pthread_mutex_unlock(&mutex);
+    pthread_mutex_unlock(&print_mutex);
 
-    usleep(33333);
+    usleep(99999);
   }
   return nullptr;
 }
 
-void *asteroidsRenderLoop(void *) {
-  while (true) {
-    pthread_mutex_lock(&mutex);
-    clear();
-    //* Putting all the code for the logic
-    refresh();
-    pthread_mutex_unlock(&mutex);
+void *asteroidsRenderLoop(void *arg) {
+  auto *screen = (screenSettings *)arg; // DEBUGGING
+  MovableObject *debug_object =
+      new MovableObject(screen->startX + 15, screen->startY + 15, FacingLeft,
+                        *screen); // DEBUGGING
 
-    usleep(33333);
+  while (true) {
+
+    // TODO: use barrier when the overlapping function is done
+    pthread_mutex_lock(&print_mutex);
+    // DEBUGGING
+    debug_object->erase();
+    debug_object->MoveBackward();
+    debug_object->render();
+    // DEBUGGING
+    refresh();
+    //* Putting all the code for the logic
+    pthread_mutex_unlock(&print_mutex);
+
+    usleep(99999);
   }
   return nullptr;
 }
@@ -59,10 +69,10 @@ void *asteroidsRenderLoop(void *) {
 // TODO: only manage the inputs of the ship in here
 void *inputPlayer1Loop(void *) {
   while (true) {
-    pthread_mutex_lock(&mutex);
+    pthread_mutex_lock(&print_mutex);
     char ch = getch();
 
-    pthread_mutex_unlock(&mutex);
+    pthread_mutex_unlock(&print_mutex);
     usleep(10000);
   }
   return nullptr;
@@ -70,19 +80,20 @@ void *inputPlayer1Loop(void *) {
 // TODO: only manage the inputs of the ship in here
 void *inputPlayer2Loop(void *) {
   while (true) {
-    pthread_mutex_lock(&mutex);
+    pthread_mutex_lock(&print_mutex);
     char ch = getch();
 
-    pthread_mutex_unlock(&mutex);
+    pthread_mutex_unlock(&print_mutex);
     usleep(10000);
   }
   return nullptr;
 }
+
 // TODO: init all the objects and pass the on the inputLoop
 int main() {
   pthread_t player_threads[2];
 
-  pthread_t ui_render_thread, ship_render_thread, asteroid_thread;
+  pthread_t ui_render_thread, ship_render_thread, asteroid_render_thread;
 
   // seeing screen data
   int termHeight, termWidth;
@@ -100,18 +111,20 @@ int main() {
   initscr();
   cbreak();
   noecho();
-  timeout(0); // Non-blocking getch()
+  timeout(0);
 
-  // Initialize mutex
-  pthread_mutex_init(&mutex, NULL);
+  pthread_mutex_init(&print_mutex, NULL);
 
   // TODO: initialize the threads
   pthread_create(&ui_render_thread, NULL, uiRenderLoop, screen);
+  pthread_create(&asteroid_render_thread, NULL, asteroidsRenderLoop,
+                 screen); // FOR DEBUGGING
 
   // Create threads for rendering and input
-  pthread_join(ui_render_thread, NULL);
 
-  // Cleanup
-  pthread_mutex_destroy(&mutex);
+  pthread_join(ui_render_thread, NULL);
+  pthread_join(asteroid_render_thread, NULL); // DEBUGGING
+
+  pthread_mutex_destroy(&print_mutex);
   return 0;
 }

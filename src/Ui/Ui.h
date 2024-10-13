@@ -3,13 +3,13 @@
 
 #include "../GameManager/GameManager.h"
 #include <ncurses.h>
-// TODO: pass screenSettings
+
 class UiManagers {
 private:
   screenSettings settings;
 
 public:
-  UiManagers(const screenSettings &settings);
+  UiManagers(const screenSettings &settings); // Cause of the thredas
   void gameDisplay();
   void scoreDisplay(int scores[]);
 };

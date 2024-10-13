@@ -129,6 +129,30 @@ main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
+src/GameObjects/MovableObjects/MovableObject.o: src/GameObjects/MovableObjects/MovableObject.cpp.o
+.PHONY : src/GameObjects/MovableObjects/MovableObject.o
+
+# target to build an object file
+src/GameObjects/MovableObjects/MovableObject.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/GameObjects/MovableObjects/MovableObject.cpp.o
+.PHONY : src/GameObjects/MovableObjects/MovableObject.cpp.o
+
+src/GameObjects/MovableObjects/MovableObject.i: src/GameObjects/MovableObjects/MovableObject.cpp.i
+.PHONY : src/GameObjects/MovableObjects/MovableObject.i
+
+# target to preprocess a source file
+src/GameObjects/MovableObjects/MovableObject.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/GameObjects/MovableObjects/MovableObject.cpp.i
+.PHONY : src/GameObjects/MovableObjects/MovableObject.cpp.i
+
+src/GameObjects/MovableObjects/MovableObject.s: src/GameObjects/MovableObjects/MovableObject.cpp.s
+.PHONY : src/GameObjects/MovableObjects/MovableObject.s
+
+# target to generate assembly for a file
+src/GameObjects/MovableObjects/MovableObject.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/GameObjects/MovableObjects/MovableObject.cpp.s
+.PHONY : src/GameObjects/MovableObjects/MovableObject.cpp.s
+
 src/Ui/Ui.o: src/Ui/Ui.cpp.o
 .PHONY : src/Ui/Ui.o
 
@@ -186,6 +210,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... main"
+	@echo "... src/GameObjects/MovableObjects/MovableObject.o"
+	@echo "... src/GameObjects/MovableObjects/MovableObject.i"
+	@echo "... src/GameObjects/MovableObjects/MovableObject.s"
 	@echo "... src/Ui/Ui.o"
 	@echo "... src/Ui/Ui.i"
 	@echo "... src/Ui/Ui.s"
