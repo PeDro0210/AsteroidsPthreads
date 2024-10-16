@@ -8,6 +8,7 @@
 pthread_mutex_t print_mutex;
 
 int scores[2] = {0, 0};
+std::vector<MovableObject> all_objects; // For checking collisions
 
 /* TODO: beside calling all the functions
  * for keeping the score, seeing if objects are overlapping
