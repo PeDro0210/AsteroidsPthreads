@@ -35,7 +35,7 @@ public:
   void MoveBackward();
 
   // Getter for position
-  std::vector<int> getPos() const;
+  std::array<int, 2> getPos() const;
 
   // Setting the object as destroyed
   void destroy();
@@ -51,8 +51,6 @@ public:
 
 class Asteroid : public MovableObject {
 public:
-  Asteroid();
-
   // Keeps the movement depending on the orientation
   void keepMovement();
 };
@@ -67,37 +65,8 @@ private:
   char icon = '0';
 
 public:
-  void splitAsteroid();
-};
-
-class Ship : public MovableObject {
-private:
-  /*
-   * Icon based on orientation:
-   * FacingUp = "A"
-   * FacingDown = "V"
-   * FacingLeft = "<"
-   * FacingRight = ">"
-   */
-  char icon = 'A';
-  Orientation orientation = FacingUp;
-  int lifes = 3;
-
-public:
-  Ship();
-  // Take life points
-  void takeOutLife();
-
-  void addPoints(Asteroid asteroidDestroyed);
-
-  // Rotate counterclockwise
-  void goCounterClockWise();
-
-  // Rotate clockwise
-  void goClockWise();
-
-  // Create instance of a Projectile
-  void fire();
+  std::array<littleAsteroid, 2>
+  splitAsteroid(); // using std::array instead of vector, because of the size
 };
 
 class Projectile : public MovableObject {
@@ -113,8 +82,39 @@ private:
   char icon = '|';
 
 public:
-  Projectile(Orientation orientation);
+  Projectile(Orientation orientation); // And use the super Constructor
   void keepMovement();
+};
+
+class Ship : public MovableObject {
+private:
+  /*
+   * Icon based on orientation:
+   * FacingUp = "A"
+   * FacingDown = "V"
+   * FacingLeft = "<"
+   * FacingRight = ">"
+   */
+  char icon = 'A';
+  Orientation orientation = FacingUp;
+  int lifes = 3;
+  int id;
+
+public:
+  Ship(int id);
+  // Take life points
+  void takeOutLife();
+
+  void addPoints(Asteroid asteroidDestroyed);
+
+  // Rotate counterclockwise
+  void goCounterClockWise();
+
+  // Rotate clockwise
+  void goClockWise();
+
+  // Create instance of a Projectile
+  Projectile fire();
 };
 
 #endif // MOVABLE_OBJECTS
