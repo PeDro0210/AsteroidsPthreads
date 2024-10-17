@@ -1825,8 +1825,6 @@ CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.o: /Users/pedroavila
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdint.h \
   /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameManager/GameManager.h \
-  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameManager/GameManager.h \
-  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/Ui/Ui.h \
   /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/Util/OrientationEnum.h \
   /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/MovableObjects.h
 

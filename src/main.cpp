@@ -43,19 +43,14 @@ void *playerRenderLoop(void *) {
 }
 
 void *asteroidsRenderLoop(void *arg) {
-  MovableObject *debug_object = new MovableObject(100, 100, FacingUp);
 
   while (true) {
 
     // TODO: use barrier when the overlapping function is done
     pthread_mutex_lock(&print_mutex);
-    // DEBUGGING
-    debug_object->erase();
-    debug_object->MoveFoward();
-    debug_object->render();
-    // DEBUGGING
-    refresh();
     //* Putting all the code for the logic
+
+    refresh();
     pthread_mutex_unlock(&print_mutex);
 
     usleep(99999);
@@ -64,6 +59,7 @@ void *asteroidsRenderLoop(void *arg) {
 }
 
 // TODO: only manage the inputs of the ship in here
+// Hacer que el movimiento de la nave funcione para diferentes inputs
 void *inputPlayer1Loop(void *) {
   while (true) {
     pthread_mutex_lock(&print_mutex);

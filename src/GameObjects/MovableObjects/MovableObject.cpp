@@ -38,6 +38,12 @@ void MovableObject::MoveBackward() {
   keepOnLimits();
 }
 
+void MovableObject::setIcon(char new_icon) { icon = new_icon; }
+
+void MovableObject::setOrientation(Orientation new_orientation) {
+  orientation = new_orientation;
+}
+
 void MovableObject::MoveFoward() {
   switch (orientation) {
   case FacingUp:

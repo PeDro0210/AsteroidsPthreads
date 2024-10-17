@@ -8,15 +8,15 @@
 #include <vector>
 
 class MovableObject {
+protected:
+  char icon = 'x';
+  Orientation orientation;
+
 private:
   int x_pos;
   int y_pos;
 
   bool destroyed = false;
-
-  Orientation orientation;
-
-  char icon = 'x';
 
   screenSettings *settings;
 
@@ -32,6 +32,9 @@ public:
   // For managing the position
   void MoveFoward();
   void MoveBackward();
+
+  void setIcon(char new_icon);
+  void setOrientation(Orientation new_orientation);
 
   // Getter for position
   std::array<int, 2> getPos() const;
@@ -100,7 +103,7 @@ private:
   int id;
 
 public:
-  Ship(int id);
+  Ship(int id, int x_dis, int y_dis);
   // Take life points
   void takeOutLife();
 
