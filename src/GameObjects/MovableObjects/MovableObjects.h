@@ -31,13 +31,12 @@ public:
 
   // For managing the position
   void MoveFoward();
-  void MoveBackward();
 
   void setIcon(char new_icon);
   void setOrientation(Orientation new_orientation);
 
   // Getter for position
-  std::array<int, 2> getPos() const;
+  std::array<int, 2> getPos();
 
   // Setting the object as destroyed
   void destroy();
@@ -48,7 +47,7 @@ public:
   // render the icon
   void render();
 
-  void erase();
+  void erase(int latest_x, int latest_y);
 };
 
 class Asteroid : public MovableObject {
@@ -107,11 +106,13 @@ public:
   // Take life points
   void takeOutLife();
 
-  // Rotate counterclockwise
-  void goCounterClockWise();
+  void lookUp();
 
-  // Rotate clockwise
-  void goClockWise();
+  void lookDown();
+
+  void lookLeft();
+
+  void lookRight();
 
   // Create instance of a Projectile
   Projectile fire();

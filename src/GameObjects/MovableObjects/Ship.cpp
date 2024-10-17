@@ -8,44 +8,26 @@ Ship::Ship(int id, int x_dis, int y_dis)
 
 void Ship::takeOutLife() { lifes--; };
 
-void Ship::goClockWise() {
-  switch (orientation) {
-  case FacingUp:
-    setOrientation(FacingRight);
-    setIcon('>');
-    break;
-  case FacingDown:
-    setOrientation(FacingLeft);
-    setIcon('<');
-    break;
-  case FacingLeft:
-    setOrientation(FacingUp);
-    setIcon('A');
-    break;
-  case FacingRight:
-    setOrientation(FacingDown);
-    setIcon('V');
-    break;
-  }
+void Ship::lookUp() {
+  setIcon('A');
+  setOrientation(FacingUp);
+  MoveFoward();
 }
 
-void Ship::goCounterClockWise() {
-  switch (orientation) {
-  case FacingUp:
-    setOrientation(FacingLeft);
-    setIcon('<');
-    break;
-  case FacingDown:
-    setOrientation(FacingRight);
-    setIcon('>');
-    break;
-  case FacingLeft:
-    setOrientation(FacingDown);
-    setIcon('V');
-    break;
-  case FacingRight:
-    setOrientation(FacingUp);
-    setIcon('A');
-    break;
-  }
+void Ship::lookDown() {
+  setIcon('V');
+  setOrientation(FacingDown);
+  MoveFoward();
+}
+
+void Ship::lookRight() {
+  setIcon('>');
+  setOrientation(FacingRight);
+  MoveFoward();
+}
+
+void Ship::lookLeft() {
+  setIcon('<');
+  setOrientation(FacingLeft);
+  MoveFoward();
 }

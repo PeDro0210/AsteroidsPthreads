@@ -1,6 +1,7 @@
 #include "GameManager/GameManager.h"
 #include "GameObjects/MovableObjects/MovableObjects.h"
 #include "Ui/Ui.h"
+#include <cstddef>
 #include <ncurses.h>
 #include <pthread.h>
 #include <unistd.h>
@@ -9,6 +10,10 @@ pthread_mutex_t print_mutex;
 
 int scores[2] = {0, 0};
 std::vector<MovableObject> all_objects; // For checking collisions
+Ship *debug_ship;                       // Now it can be acces everywhere
+
+// Initialize the global ship
+void initializeShip() { debug_ship = new Ship(1, 10, 10); }
 
 /* TODO: beside calling all the functions
  * for keeping the score, seeing if objects are overlapping
@@ -31,13 +36,25 @@ void *uiRenderLoop(void *arg) {
 }
 
 void *playerRenderLoop(void *) {
+  int lastX = debug_ship->getPos()[0];
+  int lastY = debug_ship->getPos()[1];
+
   while (true) {
     pthread_mutex_lock(&print_mutex);
-    //* Putting all the code for the logic
+
+    debug_ship->erase(
+        lastX,
+        lastY); // Modify the erase method if needed to accept coordinates
+
+    debug_ship->render(); // Render the ship at the new position
+
+    lastX = debug_ship->getPos()[0];
+    lastY = debug_ship->getPos()[1];
+
     refresh();
     pthread_mutex_unlock(&print_mutex);
 
-    usleep(99999);
+    usleep(100000);
   }
   return nullptr;
 }
@@ -48,9 +65,10 @@ void *asteroidsRenderLoop(void *arg) {
 
     // TODO: use barrier when the overlapping function is done
     pthread_mutex_lock(&print_mutex);
-    //* Putting all the code for the logic
-
+    // DEBUGGING
+    // DEBUGGING
     refresh();
+    //* Putting all the code for the logic
     pthread_mutex_unlock(&print_mutex);
 
     usleep(99999);
@@ -59,11 +77,26 @@ void *asteroidsRenderLoop(void *arg) {
 }
 
 // TODO: only manage the inputs of the ship in here
-// Hacer que el movimiento de la nave funcione para diferentes inputs
 void *inputPlayer1Loop(void *) {
+  // TODO: setting this for multithreading
   while (true) {
     pthread_mutex_lock(&print_mutex);
     char ch = getch();
+
+    if (ch == 'w') {
+      debug_ship->lookUp();
+    }
+    if (ch == 's') {
+      debug_ship->lookDown();
+    }
+
+    if (ch == 'a') {
+      debug_ship->lookLeft();
+    }
+
+    if (ch == 'd') {
+      debug_ship->lookRight();
+    }
 
     pthread_mutex_unlock(&print_mutex);
     usleep(10000);
@@ -96,15 +129,22 @@ int main() {
 
   pthread_mutex_init(&print_mutex, NULL);
 
+  initializeShip();
+
   // TODO: initialize the threads
   pthread_create(&ui_render_thread, NULL, uiRenderLoop, NULL);
   pthread_create(&asteroid_render_thread, NULL, asteroidsRenderLoop,
                  NULL); // FOR DEBUGGING
+                        //
+  pthread_create(&player_threads[0], NULL, inputPlayer1Loop, NULL);
+  pthread_create(&ship_render_thread, NULL, playerRenderLoop, NULL);
 
   // Create threads for rendering and input
 
   pthread_join(ui_render_thread, NULL);
   pthread_join(asteroid_render_thread, NULL); // DEBUGGING
+  pthread_join(player_threads[0], NULL);
+  pthread_join(ship_render_thread, NULL);
 
   pthread_mutex_destroy(&print_mutex);
   return 0;
