@@ -15,8 +15,7 @@ std::vector<MovableObject> all_objects; // For checking collisions
  */
 
 void *uiRenderLoop(void *arg) {
-  auto *screen = (screenSettings *)arg;
-  auto *ui_manager = new UiManagers(*screen);
+  auto *ui_manager = new UiManagers();
 
   while (true) {
     pthread_mutex_lock(&print_mutex);
@@ -44,10 +43,7 @@ void *playerRenderLoop(void *) {
 }
 
 void *asteroidsRenderLoop(void *arg) {
-  auto *screen = (screenSettings *)arg; // DEBUGGING
-  MovableObject *debug_object =
-      new MovableObject(screen->startX + 15, screen->startY + 15, FacingLeft,
-                        *screen); // DEBUGGING
+  MovableObject *debug_object = new MovableObject(100, 100, FacingUp);
 
   while (true) {
 
@@ -55,7 +51,7 @@ void *asteroidsRenderLoop(void *arg) {
     pthread_mutex_lock(&print_mutex);
     // DEBUGGING
     debug_object->erase();
-    debug_object->MoveBackward();
+    debug_object->MoveFoward();
     debug_object->render();
     // DEBUGGING
     refresh();
@@ -96,18 +92,6 @@ int main() {
 
   pthread_t ui_render_thread, ship_render_thread, asteroid_render_thread;
 
-  // seeing screen data
-  int termHeight, termWidth;
-  getmaxyx(stdscr, termHeight, termWidth);
-
-  int boxHeight = 32, boxWidth = 64;
-  int startY = (75 + termHeight - boxHeight) / 2; // hehe, I love magic numbers
-  int startX = (200 + termWidth - boxWidth) / 2;
-
-  // put the instance of the screenSetting in here and pass it to the renderLoop
-  auto *screen = new screenSettings(startX, startY, boxWidth,
-                                    boxHeight); // okay, thanks LLMS for this
-
   // Initialize ncurses
   initscr();
   cbreak();
@@ -117,9 +101,9 @@ int main() {
   pthread_mutex_init(&print_mutex, NULL);
 
   // TODO: initialize the threads
-  pthread_create(&ui_render_thread, NULL, uiRenderLoop, screen);
+  pthread_create(&ui_render_thread, NULL, uiRenderLoop, NULL);
   pthread_create(&asteroid_render_thread, NULL, asteroidsRenderLoop,
-                 screen); // FOR DEBUGGING
+                 NULL); // FOR DEBUGGING
 
   // Create threads for rendering and input
 

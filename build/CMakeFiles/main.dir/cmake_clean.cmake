@@ -1,8 +1,12 @@
 file(REMOVE_RECURSE
   "CMakeFiles/main.dir/src/GameObjects/MovableObjects/MovableObject.cpp.o"
   "CMakeFiles/main.dir/src/GameObjects/MovableObjects/MovableObject.cpp.o.d"
+  "CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.o"
+  "CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.o.d"
   "CMakeFiles/main.dir/src/Ui/Ui.cpp.o"
   "CMakeFiles/main.dir/src/Ui/Ui.cpp.o.d"
+  "CMakeFiles/main.dir/src/Ui/Util/ScreenSettingsInit.cpp.o"
+  "CMakeFiles/main.dir/src/Ui/Util/ScreenSettingsInit.cpp.o.d"
   "CMakeFiles/main.dir/src/main.cpp.o"
   "CMakeFiles/main.dir/src/main.cpp.o.d"
   "main"

@@ -1,7 +1,7 @@
-CMakeFiles/main.dir/src/Ui/Ui.cpp.o: \
-  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/Ui/Ui.cpp \
-  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/Ui/Ui.h \
-  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/Ui/../GameManager/GameManager.h \
+CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.o: \
+  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/Ship.cpp \
+  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/../../Ui/Ui.h \
+  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/../../Ui/../GameManager/GameManager.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/vector \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__algorithm/copy.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__algorithm/copy_move_common.h \
@@ -909,5 +909,6 @@ CMakeFiles/main.dir/src/Ui/Ui.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/AvailabilityMacros.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/unctrl.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/curses.h \
-  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/Ui/Util/ScreenSettingsInit.h \
-  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/Ui/Util/../Ui.h
+  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/MovableObjects.h \
+  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/../../GameManager/GameManager.h \
+  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/../Util/OrientationEnum.h

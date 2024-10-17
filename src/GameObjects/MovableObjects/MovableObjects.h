@@ -18,15 +18,14 @@ private:
 
   char icon = 'x';
 
-  screenSettings settings;
+  screenSettings *settings;
 
   // Keep object within grid limits
   void keepOnLimits();
 
 public:
   // Constructor
-  MovableObject(int x, int y, Orientation orientation,
-                const screenSettings &settings);
+  MovableObject(int x, int y, Orientation orientation);
 
   ~MovableObject();
 
@@ -104,8 +103,6 @@ public:
   Ship(int id);
   // Take life points
   void takeOutLife();
-
-  void addPoints(Asteroid asteroidDestroyed);
 
   // Rotate counterclockwise
   void goCounterClockWise();

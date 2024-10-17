@@ -44,10 +44,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.30.1/bin/cmake
+CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.30.5/bin/cmake
 
 # The command to remove a file.
-RM = /opt/homebrew/Cellar/cmake/3.30.1/bin/cmake -E rm -f
+RM = /opt/homebrew/Cellar/cmake/3.30.5/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -111,11 +111,41 @@ CMakeFiles/main.dir/src/GameObjects/MovableObjects/MovableObject.cpp.s: cmake_fo
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/GameObjects/MovableObjects/MovableObject.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/MovableObject.cpp -o CMakeFiles/main.dir/src/GameObjects/MovableObjects/MovableObject.cpp.s
 
+CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.o: /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/Ship.cpp
+CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/pedroavila/Projects/AsteroidsPthreadsImplementation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.o -MF CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.o.d -o CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.o -c /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/Ship.cpp
+
+CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/Ship.cpp > CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.i
+
+CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/Ship.cpp -o CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.s
+
+CMakeFiles/main.dir/src/Ui/Util/ScreenSettingsInit.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/Ui/Util/ScreenSettingsInit.cpp.o: /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/Ui/Util/ScreenSettingsInit.cpp
+CMakeFiles/main.dir/src/Ui/Util/ScreenSettingsInit.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/pedroavila/Projects/AsteroidsPthreadsImplementation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/src/Ui/Util/ScreenSettingsInit.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/Ui/Util/ScreenSettingsInit.cpp.o -MF CMakeFiles/main.dir/src/Ui/Util/ScreenSettingsInit.cpp.o.d -o CMakeFiles/main.dir/src/Ui/Util/ScreenSettingsInit.cpp.o -c /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/Ui/Util/ScreenSettingsInit.cpp
+
+CMakeFiles/main.dir/src/Ui/Util/ScreenSettingsInit.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/Ui/Util/ScreenSettingsInit.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/Ui/Util/ScreenSettingsInit.cpp > CMakeFiles/main.dir/src/Ui/Util/ScreenSettingsInit.cpp.i
+
+CMakeFiles/main.dir/src/Ui/Util/ScreenSettingsInit.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/Ui/Util/ScreenSettingsInit.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/Ui/Util/ScreenSettingsInit.cpp -o CMakeFiles/main.dir/src/Ui/Util/ScreenSettingsInit.cpp.s
+
 # Object files for target main
 main_OBJECTS = \
 "CMakeFiles/main.dir/src/main.cpp.o" \
 "CMakeFiles/main.dir/src/Ui/Ui.cpp.o" \
-"CMakeFiles/main.dir/src/GameObjects/MovableObjects/MovableObject.cpp.o"
+"CMakeFiles/main.dir/src/GameObjects/MovableObjects/MovableObject.cpp.o" \
+"CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.o" \
+"CMakeFiles/main.dir/src/Ui/Util/ScreenSettingsInit.cpp.o"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
@@ -123,9 +153,11 @@ main_EXTERNAL_OBJECTS =
 main: CMakeFiles/main.dir/src/main.cpp.o
 main: CMakeFiles/main.dir/src/Ui/Ui.cpp.o
 main: CMakeFiles/main.dir/src/GameObjects/MovableObjects/MovableObject.cpp.o
+main: CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.o
+main: CMakeFiles/main.dir/src/Ui/Util/ScreenSettingsInit.cpp.o
 main: CMakeFiles/main.dir/build.make
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/pedroavila/Projects/AsteroidsPthreadsImplementation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/pedroavila/Projects/AsteroidsPthreadsImplementation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

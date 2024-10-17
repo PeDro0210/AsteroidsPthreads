@@ -48,10 +48,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.30.1/bin/cmake
+CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.30.5/bin/cmake
 
 # The command to remove a file.
-RM = /opt/homebrew/Cellar/cmake/3.30.1/bin/cmake -E rm -f
+RM = /opt/homebrew/Cellar/cmake/3.30.5/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/bu
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
-	/opt/homebrew/Cellar/cmake/3.30.1/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/opt/homebrew/Cellar/cmake/3.30.5/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -78,7 +78,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	/opt/homebrew/Cellar/cmake/3.30.1/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/opt/homebrew/Cellar/cmake/3.30.5/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -153,6 +153,30 @@ src/GameObjects/MovableObjects/MovableObject.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/GameObjects/MovableObjects/MovableObject.cpp.s
 .PHONY : src/GameObjects/MovableObjects/MovableObject.cpp.s
 
+src/GameObjects/MovableObjects/Ship.o: src/GameObjects/MovableObjects/Ship.cpp.o
+.PHONY : src/GameObjects/MovableObjects/Ship.o
+
+# target to build an object file
+src/GameObjects/MovableObjects/Ship.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.o
+.PHONY : src/GameObjects/MovableObjects/Ship.cpp.o
+
+src/GameObjects/MovableObjects/Ship.i: src/GameObjects/MovableObjects/Ship.cpp.i
+.PHONY : src/GameObjects/MovableObjects/Ship.i
+
+# target to preprocess a source file
+src/GameObjects/MovableObjects/Ship.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.i
+.PHONY : src/GameObjects/MovableObjects/Ship.cpp.i
+
+src/GameObjects/MovableObjects/Ship.s: src/GameObjects/MovableObjects/Ship.cpp.s
+.PHONY : src/GameObjects/MovableObjects/Ship.s
+
+# target to generate assembly for a file
+src/GameObjects/MovableObjects/Ship.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.s
+.PHONY : src/GameObjects/MovableObjects/Ship.cpp.s
+
 src/Ui/Ui.o: src/Ui/Ui.cpp.o
 .PHONY : src/Ui/Ui.o
 
@@ -176,6 +200,30 @@ src/Ui/Ui.s: src/Ui/Ui.cpp.s
 src/Ui/Ui.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Ui/Ui.cpp.s
 .PHONY : src/Ui/Ui.cpp.s
+
+src/Ui/Util/ScreenSettingsInit.o: src/Ui/Util/ScreenSettingsInit.cpp.o
+.PHONY : src/Ui/Util/ScreenSettingsInit.o
+
+# target to build an object file
+src/Ui/Util/ScreenSettingsInit.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Ui/Util/ScreenSettingsInit.cpp.o
+.PHONY : src/Ui/Util/ScreenSettingsInit.cpp.o
+
+src/Ui/Util/ScreenSettingsInit.i: src/Ui/Util/ScreenSettingsInit.cpp.i
+.PHONY : src/Ui/Util/ScreenSettingsInit.i
+
+# target to preprocess a source file
+src/Ui/Util/ScreenSettingsInit.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Ui/Util/ScreenSettingsInit.cpp.i
+.PHONY : src/Ui/Util/ScreenSettingsInit.cpp.i
+
+src/Ui/Util/ScreenSettingsInit.s: src/Ui/Util/ScreenSettingsInit.cpp.s
+.PHONY : src/Ui/Util/ScreenSettingsInit.s
+
+# target to generate assembly for a file
+src/Ui/Util/ScreenSettingsInit.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Ui/Util/ScreenSettingsInit.cpp.s
+.PHONY : src/Ui/Util/ScreenSettingsInit.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -213,9 +261,15 @@ help:
 	@echo "... src/GameObjects/MovableObjects/MovableObject.o"
 	@echo "... src/GameObjects/MovableObjects/MovableObject.i"
 	@echo "... src/GameObjects/MovableObjects/MovableObject.s"
+	@echo "... src/GameObjects/MovableObjects/Ship.o"
+	@echo "... src/GameObjects/MovableObjects/Ship.i"
+	@echo "... src/GameObjects/MovableObjects/Ship.s"
 	@echo "... src/Ui/Ui.o"
 	@echo "... src/Ui/Ui.i"
 	@echo "... src/Ui/Ui.s"
+	@echo "... src/Ui/Util/ScreenSettingsInit.o"
+	@echo "... src/Ui/Util/ScreenSettingsInit.i"
+	@echo "... src/Ui/Util/ScreenSettingsInit.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

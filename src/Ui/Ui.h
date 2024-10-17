@@ -6,10 +6,10 @@
 
 class UiManagers {
 private:
-  screenSettings settings;
+  screenSettings *settings;
 
 public:
-  UiManagers(const screenSettings &settings); // Cause of the thredas
+  UiManagers(); // Cause of the thredas
   void gameDisplay();
   void scoreDisplay(int scores[]);
 };

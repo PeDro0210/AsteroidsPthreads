@@ -1,7 +1,8 @@
 CMakeFiles/main.dir/src/GameObjects/MovableObjects/MovableObject.cpp.o: \
   /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/MovableObject.cpp \
-  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/MovableObjects.h \
-  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/../../GameManager/GameManager.h \
+  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/../../Ui/Util/ScreenSettingsInit.h \
+  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/../../Ui/Util/../Ui.h \
+  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/../../Ui/Util/../../GameManager/GameManager.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/vector \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__algorithm/copy.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__algorithm/copy_move_common.h \
@@ -904,9 +905,11 @@ CMakeFiles/main.dir/src/GameObjects/MovableObjects/MovableObject.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/cstdarg \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__memory/temp_value.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__split_buffer \
-  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/../Util/OrientationEnum.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/ncurses.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/ncurses_dll.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/AvailabilityMacros.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/unctrl.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/curses.h
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/curses.h \
+  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/MovableObjects.h \
+  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/../../GameManager/GameManager.h \
+  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/../Util/OrientationEnum.h
