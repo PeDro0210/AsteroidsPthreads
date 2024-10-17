@@ -53,3 +53,5 @@ void MovableObject::erase(int latest_x, int latest_y) {
 }
 
 std::array<int, 2> MovableObject::getPos() { return {x_pos, y_pos}; }
+
+Orientation MovableObject::getOrientation() { return orientation; }

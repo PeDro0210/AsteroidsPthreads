@@ -1,4 +1,3 @@
-#include "GameManager/GameManager.h"
 #include "GameObjects/MovableObjects/MovableObjects.h"
 #include "Ui/Ui.h"
 #include <cstddef>
@@ -9,8 +8,9 @@
 pthread_mutex_t print_mutex;
 
 int scores[2] = {0, 0};
-std::vector<MovableObject> all_objects; // For checking collisions
-Ship *debug_ship;                       // Now it can be acces everywhere
+std::vector<MovableObject *> all_objects; // For checking collisions
+Ship *debug_ship;                         // Now it can be acces everywhere
+std::vector<Projectile *> projectile_ship1;
 
 // Initialize the global ship
 void initializeShip() { debug_ship = new Ship(1, 10, 10); }
@@ -35,6 +35,7 @@ void *uiRenderLoop(void *arg) {
   return nullptr;
 }
 
+// f*** DRY, I'll do the same for player 2
 void *playerRenderLoop(void *) {
   int lastX = debug_ship->getPos()[0];
   int lastY = debug_ship->getPos()[1];
@@ -42,23 +43,55 @@ void *playerRenderLoop(void *) {
   while (true) {
     pthread_mutex_lock(&print_mutex);
 
-    debug_ship->erase(
-        lastX,
-        lastY); // Modify the erase method if needed to accept coordinates
-
+    // Erase the previous position of the ship
+    debug_ship->erase(lastX, lastY);
     debug_ship->render(); // Render the ship at the new position
 
+    // Update the last known position
     lastX = debug_ship->getPos()[0];
     lastY = debug_ship->getPos()[1];
 
-    refresh();
-    pthread_mutex_unlock(&print_mutex);
+    // Temporary storage for projectiles to remove
+    std::vector<Projectile *> projectilesToRemove;
 
-    usleep(100000);
+    for (Projectile *projectile : projectile_ship1) {
+      all_objects.push_back(projectile);
+      int lastX_projectile = projectile->getPos()[0];
+      int lastY_projectile = projectile->getPos()[1];
+
+      projectile->erase(lastX_projectile,
+                        lastY_projectile); // Erase from the previous position
+      projectile->MoveFoward();            // Move the projectile forward
+      projectile->addingAge();
+
+      if (projectile->alive()) {
+        projectile->render(); // Render at the new position
+      } else {
+        projectilesToRemove.push_back(projectile); // Mark for removal
+      }
+    }
+
+    for (Projectile *projectile : projectilesToRemove) {
+      delete projectile; // Free memory if dynamically allocated
+
+      all_objects.erase(
+          std::remove(all_objects.begin(), all_objects.end(), projectile),
+          all_objects
+              .end()); // idunno, someone gave me this method. Not saying names
+
+      projectile_ship1.erase(std::remove(projectile_ship1.begin(),
+                                         projectile_ship1.end(), projectile),
+                             projectile_ship1.end());
+    }
+
+    refresh(); // Refresh the display
+
+    pthread_mutex_unlock(&print_mutex); // Unlock the mutex
+
+    usleep(100000); // Sleep for 100 milliseconds
   }
   return nullptr;
 }
-
 void *asteroidsRenderLoop(void *arg) {
 
   while (true) {
@@ -98,6 +131,11 @@ void *inputPlayer1Loop(void *) {
       debug_ship->lookRight();
     }
 
+    if (ch == 'p') {
+      projectile_ship1.push_back(
+          debug_ship->fire()); // TODO: see if is in here the issue
+    }
+
     pthread_mutex_unlock(&print_mutex);
     usleep(10000);
   }
@@ -130,6 +168,8 @@ int main() {
   pthread_mutex_init(&print_mutex, NULL);
 
   initializeShip();
+
+  all_objects.push_back(debug_ship);
 
   // TODO: initialize the threads
   pthread_create(&ui_render_thread, NULL, uiRenderLoop, NULL);

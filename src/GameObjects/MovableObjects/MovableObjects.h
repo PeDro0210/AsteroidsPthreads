@@ -1,6 +1,6 @@
 #ifndef MOVABLE_OBJECTS
 #define MOVABLE_OBJECTS
-
+#pragma once
 #include "../../GameManager/GameManager.h"
 #include "../Util/OrientationEnum.h"
 #include "ncurses.h"
@@ -11,13 +11,11 @@ class MovableObject {
 protected:
   char icon = 'x';
   Orientation orientation;
-
-private:
   int x_pos;
   int y_pos;
-
   bool destroyed = false;
 
+private:
   screenSettings *settings;
 
   // Keep object within grid limits
@@ -37,6 +35,8 @@ public:
 
   // Getter for position
   std::array<int, 2> getPos();
+
+  Orientation getOrientation();
 
   // Setting the object as destroyed
   void destroy();
@@ -81,10 +81,15 @@ private:
    * FacingRight = "-"
    */
   char icon = '|';
+  float life_time = 5.0f;
+  float age = 0;
 
 public:
-  Projectile(Orientation orientation); // And use the super Constructor
-  void keepMovement();
+  Projectile(int id, Orientation orientation, int x_pos,
+             int y_pos); // And use the super Constructor
+  void addingAge();
+
+  bool alive();
 };
 
 class Ship : public MovableObject {
@@ -115,7 +120,7 @@ public:
   void lookRight();
 
   // Create instance of a Projectile
-  Projectile fire();
+  Projectile *fire();
 };
 
 #endif // MOVABLE_OBJECTS
