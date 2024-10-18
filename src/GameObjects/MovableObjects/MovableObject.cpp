@@ -20,22 +20,10 @@ void MovableObject::keepOnLimits() {
   }
 }
 
-void MovableObject::MoveBackward() {
-  switch (orientation) {
-  case FacingUp:
-    y_pos++;
-    break;
-  case FacingDown:
-    y_pos--;
-    break;
-  case FacingLeft:
-    x_pos++;
-    break;
-  case FacingRight:
-    x_pos--;
-    break;
-  }
-  keepOnLimits();
+void MovableObject::setIcon(char new_icon) { icon = new_icon; }
+
+void MovableObject::setOrientation(Orientation new_orientation) {
+  orientation = new_orientation;
 }
 
 void MovableObject::MoveFoward() {
@@ -60,4 +48,10 @@ void MovableObject::destroy() { destroyed = true; }
 
 void MovableObject::render() { mvwprintw(stdscr, y_pos, x_pos, "%c", icon); }
 
-void MovableObject::erase() { mvaddch(y_pos, x_pos, ' '); }
+void MovableObject::erase(int latest_x, int latest_y) {
+  mvaddch(latest_y, latest_x, ' ');
+}
+
+std::array<int, 2> MovableObject::getPos() { return {x_pos, y_pos}; }
+
+Orientation MovableObject::getOrientation() { return orientation; }

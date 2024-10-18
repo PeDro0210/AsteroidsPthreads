@@ -153,6 +153,30 @@ src/GameObjects/MovableObjects/MovableObject.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/GameObjects/MovableObjects/MovableObject.cpp.s
 .PHONY : src/GameObjects/MovableObjects/MovableObject.cpp.s
 
+src/GameObjects/MovableObjects/Projectile.o: src/GameObjects/MovableObjects/Projectile.cpp.o
+.PHONY : src/GameObjects/MovableObjects/Projectile.o
+
+# target to build an object file
+src/GameObjects/MovableObjects/Projectile.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/GameObjects/MovableObjects/Projectile.cpp.o
+.PHONY : src/GameObjects/MovableObjects/Projectile.cpp.o
+
+src/GameObjects/MovableObjects/Projectile.i: src/GameObjects/MovableObjects/Projectile.cpp.i
+.PHONY : src/GameObjects/MovableObjects/Projectile.i
+
+# target to preprocess a source file
+src/GameObjects/MovableObjects/Projectile.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/GameObjects/MovableObjects/Projectile.cpp.i
+.PHONY : src/GameObjects/MovableObjects/Projectile.cpp.i
+
+src/GameObjects/MovableObjects/Projectile.s: src/GameObjects/MovableObjects/Projectile.cpp.s
+.PHONY : src/GameObjects/MovableObjects/Projectile.s
+
+# target to generate assembly for a file
+src/GameObjects/MovableObjects/Projectile.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/GameObjects/MovableObjects/Projectile.cpp.s
+.PHONY : src/GameObjects/MovableObjects/Projectile.cpp.s
+
 src/GameObjects/MovableObjects/Ship.o: src/GameObjects/MovableObjects/Ship.cpp.o
 .PHONY : src/GameObjects/MovableObjects/Ship.o
 
@@ -261,6 +285,9 @@ help:
 	@echo "... src/GameObjects/MovableObjects/MovableObject.o"
 	@echo "... src/GameObjects/MovableObjects/MovableObject.i"
 	@echo "... src/GameObjects/MovableObjects/MovableObject.s"
+	@echo "... src/GameObjects/MovableObjects/Projectile.o"
+	@echo "... src/GameObjects/MovableObjects/Projectile.i"
+	@echo "... src/GameObjects/MovableObjects/Projectile.s"
 	@echo "... src/GameObjects/MovableObjects/Ship.o"
 	@echo "... src/GameObjects/MovableObjects/Ship.i"
 	@echo "... src/GameObjects/MovableObjects/Ship.s"

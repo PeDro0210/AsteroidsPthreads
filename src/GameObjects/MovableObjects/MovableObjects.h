@@ -1,6 +1,6 @@
 #ifndef MOVABLE_OBJECTS
 #define MOVABLE_OBJECTS
-
+#pragma once
 #include "../../GameManager/GameManager.h"
 #include "../Util/OrientationEnum.h"
 #include "ncurses.h"
@@ -8,16 +8,14 @@
 #include <vector>
 
 class MovableObject {
-private:
+protected:
+  char icon = 'x';
+  Orientation orientation;
   int x_pos;
   int y_pos;
-
   bool destroyed = false;
 
-  Orientation orientation;
-
-  char icon = 'x';
-
+private:
   screenSettings *settings;
 
   // Keep object within grid limits
@@ -31,10 +29,14 @@ public:
 
   // For managing the position
   void MoveFoward();
-  void MoveBackward();
+
+  void setIcon(char new_icon);
+  void setOrientation(Orientation new_orientation);
 
   // Getter for position
-  std::array<int, 2> getPos() const;
+  std::array<int, 2> getPos();
+
+  Orientation getOrientation();
 
   // Setting the object as destroyed
   void destroy();
@@ -45,7 +47,7 @@ public:
   // render the icon
   void render();
 
-  void erase();
+  void erase(int latest_x, int latest_y);
 };
 
 class Asteroid : public MovableObject {
@@ -79,10 +81,15 @@ private:
    * FacingRight = "-"
    */
   char icon = '|';
+  float life_time = 5.0f;
+  float age = 0;
 
 public:
-  Projectile(Orientation orientation); // And use the super Constructor
-  void keepMovement();
+  Projectile(int id, Orientation orientation, int x_pos,
+             int y_pos); // And use the super Constructor
+  void addingAge();
+
+  bool alive();
 };
 
 class Ship : public MovableObject {
@@ -100,18 +107,20 @@ private:
   int id;
 
 public:
-  Ship(int id);
+  Ship(int id, int x_dis, int y_dis);
   // Take life points
   void takeOutLife();
 
-  // Rotate counterclockwise
-  void goCounterClockWise();
+  void lookUp();
 
-  // Rotate clockwise
-  void goClockWise();
+  void lookDown();
+
+  void lookLeft();
+
+  void lookRight();
 
   // Create instance of a Projectile
-  Projectile fire();
+  Projectile *fire();
 };
 
 #endif // MOVABLE_OBJECTS
