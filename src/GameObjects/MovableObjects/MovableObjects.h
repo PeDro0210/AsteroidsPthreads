@@ -2,7 +2,7 @@
 #define MOVABLE_OBJECTS
 #pragma once
 #include "../../GameManager/GameManager.h"
-#include "../Util/OrientationEnum.h"
+#include "../Util/Util.h"
 #include "ncurses.h"
 #include <string>
 #include <vector>
@@ -14,10 +14,9 @@ protected:
   int x_pos;
   int y_pos;
   bool destroyed = false;
-
-private:
   screenSettings *settings;
 
+private:
   // Keep object within grid limits
   void keepOnLimits();
 
@@ -52,21 +51,19 @@ public:
 
 class Asteroid : public MovableObject {
 public:
-  // Keeps the movement depending on the orientation
-  void keepMovement();
+  Asteroid();
+  void settingRandomFacing();
 };
 
 class littleAsteroid : public Asteroid {
-private:
-  char icon = 'o';
+public:
+  littleAsteroid();
 };
 
 class bigAsteroid : public Asteroid {
-private:
-  char icon = '0';
-
 public:
-  std::array<littleAsteroid, 2>
+  bigAsteroid();
+  std::array<littleAsteroid *, 2>
   splitAsteroid(); // using std::array instead of vector, because of the size
 };
 

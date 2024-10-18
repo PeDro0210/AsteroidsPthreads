@@ -904,7 +904,7 @@ CMakeFiles/main.dir/src/GameObjects/MovableObjects/Projectile.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/cstdarg \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__memory/temp_value.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__split_buffer \
-  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/../Util/OrientationEnum.h \
+  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/../Util/Util.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/ncurses.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/ncurses_dll.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/AvailabilityMacros.h \

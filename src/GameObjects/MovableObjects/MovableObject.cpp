@@ -7,16 +7,16 @@ MovableObject::MovableObject(int x, int y, Orientation orientation)
 MovableObject::~MovableObject() {}
 
 void MovableObject::keepOnLimits() {
-  if (x_pos < settings->startX) {
-    x_pos = settings->startX + settings->boxWidth - 1;
-  } else if (x_pos >= settings->startX + settings->boxWidth) {
-    x_pos = settings->startX;
+  if (x_pos < settings->startX + 1) {
+    x_pos = settings->startX + settings->boxWidth - 2;
+  } else if (x_pos >= settings->startX + settings->boxWidth - 1) {
+    x_pos = settings->startX + 2;
   }
 
-  if (y_pos < settings->startY) {
-    y_pos = settings->startY + settings->boxHeight - 1;
-  } else if (y_pos >= settings->startY + settings->boxHeight) {
-    y_pos = settings->startY;
+  if (y_pos < settings->startY + 1) {
+    y_pos = settings->startY + settings->boxHeight - 2;
+  } else if (y_pos >= settings->startY + settings->boxHeight - 1) {
+    y_pos = settings->startY + 2;
   }
 }
 

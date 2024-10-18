@@ -7,9 +7,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 add_executable(
   main
-  src/main.cpp src/Ui/Ui.cpp src/GameObjects/MovableObjects/MovableObject.cpp
-  src/GameObjects/MovableObjects/Ship.cpp src/Ui/Util/ScreenSettingsInit.cpp
-  src/GameObjects/MovableObjects/Projectile.cpp)
+  src/main.cpp
+  src/Ui/Ui.cpp
+  src/GameObjects/MovableObjects/MovableObject.cpp
+  src/GameObjects/MovableObjects/Ship.cpp
+  src/Ui/Util/ScreenSettingsInit.cpp
+  src/GameObjects/MovableObjects/Projectile.cpp
+  src/GameObjects/MovableObjects/Asteroids.cpp)
 
 target_link_libraries(main PRIVATE pthread)
 target_link_libraries(main PRIVATE ncurses)

@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/Asteroids.cpp" "CMakeFiles/main.dir/src/GameObjects/MovableObjects/Asteroids.cpp.o" "gcc" "CMakeFiles/main.dir/src/GameObjects/MovableObjects/Asteroids.cpp.o.d"
   "/Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/MovableObject.cpp" "CMakeFiles/main.dir/src/GameObjects/MovableObjects/MovableObject.cpp.o" "gcc" "CMakeFiles/main.dir/src/GameObjects/MovableObjects/MovableObject.cpp.o.d"
   "/Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/Projectile.cpp" "CMakeFiles/main.dir/src/GameObjects/MovableObjects/Projectile.cpp.o" "gcc" "CMakeFiles/main.dir/src/GameObjects/MovableObjects/Projectile.cpp.o.d"
   "/Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/Ship.cpp" "CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.o" "gcc" "CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.o.d"

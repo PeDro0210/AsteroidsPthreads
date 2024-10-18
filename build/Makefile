@@ -129,6 +129,30 @@ main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
+src/GameObjects/MovableObjects/Asteroids.o: src/GameObjects/MovableObjects/Asteroids.cpp.o
+.PHONY : src/GameObjects/MovableObjects/Asteroids.o
+
+# target to build an object file
+src/GameObjects/MovableObjects/Asteroids.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/GameObjects/MovableObjects/Asteroids.cpp.o
+.PHONY : src/GameObjects/MovableObjects/Asteroids.cpp.o
+
+src/GameObjects/MovableObjects/Asteroids.i: src/GameObjects/MovableObjects/Asteroids.cpp.i
+.PHONY : src/GameObjects/MovableObjects/Asteroids.i
+
+# target to preprocess a source file
+src/GameObjects/MovableObjects/Asteroids.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/GameObjects/MovableObjects/Asteroids.cpp.i
+.PHONY : src/GameObjects/MovableObjects/Asteroids.cpp.i
+
+src/GameObjects/MovableObjects/Asteroids.s: src/GameObjects/MovableObjects/Asteroids.cpp.s
+.PHONY : src/GameObjects/MovableObjects/Asteroids.s
+
+# target to generate assembly for a file
+src/GameObjects/MovableObjects/Asteroids.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/GameObjects/MovableObjects/Asteroids.cpp.s
+.PHONY : src/GameObjects/MovableObjects/Asteroids.cpp.s
+
 src/GameObjects/MovableObjects/MovableObject.o: src/GameObjects/MovableObjects/MovableObject.cpp.o
 .PHONY : src/GameObjects/MovableObjects/MovableObject.o
 
@@ -282,6 +306,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... main"
+	@echo "... src/GameObjects/MovableObjects/Asteroids.o"
+	@echo "... src/GameObjects/MovableObjects/Asteroids.i"
+	@echo "... src/GameObjects/MovableObjects/Asteroids.s"
 	@echo "... src/GameObjects/MovableObjects/MovableObject.o"
 	@echo "... src/GameObjects/MovableObjects/MovableObject.i"
 	@echo "... src/GameObjects/MovableObjects/MovableObject.s"

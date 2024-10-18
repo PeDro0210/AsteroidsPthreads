@@ -44,5 +44,5 @@ Projectile *Ship::fire() {
     return new Projectile(id, FacingRight, x_pos + 2, y_pos);
   }
 
-  return nullptr; // this was a savior for some reason
+  // return nullptr; // this was a savior for some reason
 }

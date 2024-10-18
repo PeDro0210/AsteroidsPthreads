@@ -3,6 +3,7 @@
 #include <cstddef>
 #include <ncurses.h>
 #include <pthread.h>
+#include <random>
 #include <unistd.h>
 
 pthread_mutex_t print_mutex;
@@ -11,10 +12,15 @@ int scores[2] = {0, 0};
 std::vector<MovableObject *> all_objects; // For checking collisions
 Ship *debug_ship;                         // Now it can be acces everywhere
 std::vector<Projectile *> projectile_ship1;
-
+std::vector<Asteroid *> asteroids;
 // Initialize the global ship
 void initializeShip() { debug_ship = new Ship(1, 10, 10); }
 
+void initializeAsteroids() {
+  for (int i = 0; i <= (randomNumberX() % 5) + 1; i++) {
+    asteroids.push_back(new bigAsteroid());
+  }
+}
 /* TODO: beside calling all the functions
  * for keeping the score, seeing if objects are overlapping
  */
@@ -99,6 +105,14 @@ void *asteroidsRenderLoop(void *arg) {
     // TODO: use barrier when the overlapping function is done
     pthread_mutex_lock(&print_mutex);
     // DEBUGGING
+    for (Asteroid *asteroid : asteroids) {
+      int lastX = asteroid->getPos()[0];
+      int lastY = asteroid->getPos()[1];
+
+      asteroid->erase(lastX, lastY);
+      asteroid->MoveFoward();
+      asteroid->render();
+    }
     // DEBUGGING
     refresh();
     //* Putting all the code for the logic
@@ -155,6 +169,7 @@ void *inputPlayer2Loop(void *) {
 
 // TODO: init all the objects and pass the on the inputLoop
 int main() {
+
   pthread_t player_threads[2];
 
   pthread_t ui_render_thread, ship_render_thread, asteroid_render_thread;
@@ -167,7 +182,9 @@ int main() {
 
   pthread_mutex_init(&print_mutex, NULL);
 
+  srand(static_cast<unsigned int>(time(0)));
   initializeShip();
+  initializeAsteroids();
 
   all_objects.push_back(debug_ship);
 

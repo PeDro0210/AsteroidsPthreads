@@ -912,4 +912,4 @@ CMakeFiles/main.dir/src/GameObjects/MovableObjects/MovableObject.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/curses.h \
   /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/MovableObjects.h \
   /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/../../GameManager/GameManager.h \
-  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/../Util/OrientationEnum.h
+  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/../Util/Util.h
