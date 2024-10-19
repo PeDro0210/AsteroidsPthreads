@@ -40,22 +40,58 @@ void initializeAsteroidsTwoPlayers() {
   }
 }
 
-void *uiRenderLoop(void *arg) {
+void *uiRenderLoopScreen1(void *arg) {
   UiManagers *ui_manager = new UiManagers();
 
   while (true) {
-    if (ships[0]->getLife() >= 0) {
 
-      pthread_mutex_lock(&print_mutex);
-      ui_manager->gameDisplay();
-      int scores[2] = {ships[0]->getScore(), ships[1]->getScore()};
-      ui_manager->scoreDisplay(scores); // can't pass it directly, bowhomp
-      int lifes[2] = {ships[0]->getLife(), ships[1]->getScore()};
-      ui_manager->lifeDisplay(lifes);
-      //* Putting all the code for the logic
-      refresh();
-      pthread_mutex_unlock(&print_mutex);
+    pthread_mutex_lock(&print_mutex);
+    ui_manager->gameDisplay();
+
+    int scores[2] = {ships[0]->getScore(), ships[1]->getScore()};
+    ui_manager->scoreDisplay(scores); // can't pass it directly, bowhomp
+                                      //
+    int lifes[2] = {ships[0]->getLife(), ships[1]->getScore()};
+    ui_manager->lifeDisplay(lifes);
+
+    if (ships[0]->getScore() >= 40) {
+      ui_manager->winScreen(1);
     }
+    if (ships[0]->getLife() <= 0) {
+      ui_manager->loseScreen();
+    }
+
+    refresh();
+    pthread_mutex_unlock(&print_mutex);
+
+    usleep(33333);
+  }
+  return nullptr;
+}
+
+void *uiRenderLoopScreen2(void *arg) {
+  UiManagers *ui_manager = new UiManagers();
+
+  while (true) {
+
+    pthread_mutex_lock(&print_mutex);
+    ui_manager->gameDisplay();
+
+    int scores[2] = {ships[0]->getScore(), ships[1]->getScore()};
+    ui_manager->scoreDisplay(scores); // can't pass it directly, bowhomp
+                                      //
+    int lifes[2] = {ships[0]->getLife(), ships[1]->getScore()};
+    ui_manager->lifeDisplay(lifes);
+
+    if (ships[0]->getScore() >= 60 || ships[1]->getLife() <= 0) {
+      ui_manager->winScreen(1);
+    }
+    if (ships[1]->getScore() >= 60 || ships[0]->getLife() <= 0) {
+      ui_manager->winScreen(2);
+    }
+
+    refresh();
+    pthread_mutex_unlock(&print_mutex);
 
     usleep(33333);
   }
@@ -73,11 +109,9 @@ void *playerRenderLoop(void *arg) {
   while (true) {
     pthread_mutex_lock(&print_mutex);
 
-    // Erase the previous position of the ship
     ship->erase(lastX, lastY);
-    ship->render(); // Render the ship at the new position
+    ship->render();
 
-    // Update the last known position
     lastX = ship->getPos()[0];
     lastY = ship->getPos()[1];
 
@@ -88,15 +122,15 @@ void *playerRenderLoop(void *arg) {
     } else {
       projectile_ship = projectile_ship2;
     }
-    // Handle projectiles
+
     for (Projectile *projectile : projectile_ship) {
+
       all_objects.push_back(projectile);
       int lastX_projectile = projectile->getPos()[0];
       int lastY_projectile = projectile->getPos()[1];
 
-      projectile->erase(lastX_projectile,
-                        lastY_projectile); // Erase old position
-      projectile->MoveFoward();            // Move forward
+      projectile->erase(lastX_projectile, lastY_projectile);
+      projectile->MoveFoward();
       projectile->addingAge();
       projectile->alive();
 
@@ -134,6 +168,7 @@ void *asteroidsRenderLoop(void *arg) {
     pthread_mutex_lock(&print_mutex);
     // DEBUGGING
     for (Asteroid *asteroid : asteroids) {
+
       int lastX = asteroid->getPos()[0];
       int lastY = asteroid->getPos()[1];
 
@@ -144,9 +179,12 @@ void *asteroidsRenderLoop(void *arg) {
       if (asteroid->isDestroyed()) {
         if (bigAsteroid *bigAst = dynamic_cast<bigAsteroid *>(
                 asteroid)) { // If the asteroid can be cast to a bigAsteroid
+                             //
           std::array<littleAsteroid *, 2> newAsteroids =
               bigAst->splitAsteroid(asteroid->getPos()); // do the split
+
           for (littleAsteroid *little : newAsteroids) {
+
             asteroids.push_back(little);
             all_objects.push_back(little);
           }
@@ -248,10 +286,11 @@ int main() {
 
   srand(static_cast<unsigned int>(time(0))); // for the random
   initializeShip();
+
+  // This config mostly for screen1
   initializeAsteroidsNormalMode();
 
-  // TODO: initialize the threads
-  pthread_create(&ui_render_thread, NULL, uiRenderLoop, NULL);
+  pthread_create(&ui_render_thread, NULL, uiRenderLoopScreen1, NULL);
   pthread_create(&asteroid_render_thread, NULL, asteroidsRenderLoop,
                  NULL); // FOR DEBUGGING
                         //

@@ -1,6 +1,9 @@
 #include "Ui.h"
 #include "Util/ScreenSettingsInit.h"
+#include <cstdlib>
 #include <ncurses.h>
+#include <unistd.h>
+
 UiManagers::UiManagers() : settings(settingsSetup()) {}
 
 void UiManagers::gameDisplay() {
@@ -40,5 +43,38 @@ void UiManagers::lifeDisplay(int life[]) {
   for (int i = 0; i < 2; i++) { // 1 is for debugging purposes
     mvwprintw(stdscr, settings->startY - 2 + i, settings->startX + 20,
               "Life %d: %d", i + 1, life[i]);
+  }
+}
+
+void UiManagers::winScreen(int id) {
+  clear(); // Clear the screen
+
+  mvwprintw(stdscr, settings->startY + 10, settings->startX + 22,
+            "PLAYER %d WINS", id);
+  mvwprintw(stdscr, settings->startY + 11, settings->startX + 20,
+            "PRESS ESC TO EXIT");
+  int ch;
+  while (true) {
+    ch = getch();
+    if (ch == 27) {
+      endwin();
+      exit(0);
+    }
+  }
+}
+
+void UiManagers::loseScreen() {
+  clear(); // Clear the screen
+
+  mvwprintw(stdscr, settings->startY + 10, settings->startX + 22, "YOU LOSE");
+  mvwprintw(stdscr, settings->startY + 11, settings->startX + 20,
+            "PRESS ESC TO EXIT");
+  int ch;
+  while (true) {
+    ch = getch();
+    if (ch == 27) {
+      endwin();
+      exit(0);
+    }
   }
 }

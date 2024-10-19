@@ -13,6 +13,8 @@ public:
   void gameDisplay();
   void scoreDisplay(int scores[]);
   void lifeDisplay(int life[]);
+  void winScreen(int id);
+  void loseScreen();
 };
 
 #endif // !UI

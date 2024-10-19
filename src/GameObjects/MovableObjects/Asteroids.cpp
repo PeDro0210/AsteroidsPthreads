@@ -7,7 +7,8 @@ Asteroid::Asteroid(int x, int y) : MovableObject(x, y, FacingUp) {
 
 void Asteroid::settingRandomFacing() {
 
-  int randomNumber = rand() % 4;
+  int randomNumber =
+      rand() % 4; // idunno why I put this and didn't use it, but I'll leave it
   switch (rand() % 4) {
   case 0:
     setOrientation(FacingUp);
