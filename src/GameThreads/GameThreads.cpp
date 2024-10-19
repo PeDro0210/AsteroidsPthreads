@@ -12,12 +12,11 @@ void *uiRenderLoopScreen1(void *arg) {
                      ships[1]->getScore()}; // pass the score of both
     ui_manager->scoreDisplay(scores);       // can't pass it directly, bowhomp
 
-    int lifes[2] = {
-        ships[0]->getLife(),
-        ships[1]->getLife()}; // Lmao, I typo getScore for the second one, LMAO
+    int lifes[2] = {ships[0]->getLife(),
+                    0}; // Lmao, I typo getScore for the second one, LMAO
     ui_manager->lifeDisplay(lifes);
 
-    if (ships[0]->getScore() >= 40) {
+    if (ships[0]->getScore() >= 60) {
       ui_manager->winScreen(1);
     }
     if (ships[0]->getLife() <= 0) {

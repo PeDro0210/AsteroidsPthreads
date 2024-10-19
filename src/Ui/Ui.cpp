@@ -83,13 +83,15 @@ void UiManagers::selectionScreen() {
 
   // TODO:Asteroid title, but add it later
 
-  mvwprintw(stdscr, 25, 75, "ONE PLAYER: Press 1");
-  mvwprintw(stdscr, 26, 75, "TWO PLAYER: Press 2");
+  mvwprintw(stdscr, 30, 75, "ONE PLAYER: Press 1");
+  mvwprintw(stdscr, 31, 75, "TWO PLAYER: Press 2");
 
   refresh();
 }
 
 void UiManagers::deleateSelectionScreen() {
-  mvwprintw(stdscr, 25, 75, "                   ");
-  mvwprintw(stdscr, 26, 75, "                   ");
+  mvwprintw(stdscr, 30, 75, "                         ");
+  mvwprintw(stdscr, 31, 75, "                         ");
+
+  refresh();
 }
