@@ -78,3 +78,18 @@ void UiManagers::loseScreen() {
     }
   }
 }
+
+void UiManagers::selectionScreen() {
+
+  // Asteroid title, but add it later
+
+  mvwprintw(stdscr, 25, 75, "ONE PLAYER: Press 1");
+  mvwprintw(stdscr, 26, 75, "TWO PLAYER: Press 2");
+
+  refresh();
+}
+
+void UiManagers::deleateSelectionScreen() {
+  mvwprintw(stdscr, 25, 75, "                   ");
+  mvwprintw(stdscr, 26, 75, "                   ");
+}

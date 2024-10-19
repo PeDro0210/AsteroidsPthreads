@@ -1,12 +1,11 @@
-CMakeFiles/main.dir/src/main.cpp.o: \
- /home/pedro0210/Projects/AsteroidsPthreads/src/main.cpp \
+CMakeFiles/main.dir/src/Init/Init.cpp.o: \
+ /home/pedro0210/Projects/AsteroidsPthreads/src/Init/Init.cpp \
  /usr/include/stdc-predef.h \
- /home/pedro0210/Projects/AsteroidsPthreads/src/GameThreads/GameThreads.h \
- /home/pedro0210/Projects/AsteroidsPthreads/src/GameThreads/../Init/Init.h \
- /home/pedro0210/Projects/AsteroidsPthreads/src/GameThreads/../Init/../GameManager/FunctionManager.h \
- /home/pedro0210/Projects/AsteroidsPthreads/src/GameThreads/../Init/../GameManager/../GameObjects/MovableObjects/MovableObjects.h \
- /home/pedro0210/Projects/AsteroidsPthreads/src/GameThreads/../Init/../GameManager/../GameObjects/MovableObjects/../../GameManager/GameManager.h \
- /home/pedro0210/Projects/AsteroidsPthreads/src/GameThreads/../Init/../GameManager/../GameObjects/MovableObjects/../Util/Util.h \
+ /home/pedro0210/Projects/AsteroidsPthreads/src/Init/Init.h \
+ /home/pedro0210/Projects/AsteroidsPthreads/src/Init/../GameManager/FunctionManager.h \
+ /home/pedro0210/Projects/AsteroidsPthreads/src/Init/../GameManager/../GameObjects/MovableObjects/MovableObjects.h \
+ /home/pedro0210/Projects/AsteroidsPthreads/src/Init/../GameManager/../GameObjects/MovableObjects/../../GameManager/GameManager.h \
+ /home/pedro0210/Projects/AsteroidsPthreads/src/Init/../GameManager/../GameObjects/MovableObjects/../Util/Util.h \
  /usr/include/curses.h /usr/include/ncurses_dll.h \
  /usr/lib/gcc/x86_64-redhat-linux/14/include/stdint.h \
  /usr/include/stdint.h /usr/include/bits/libc-header-start.h \
@@ -122,8 +121,8 @@ CMakeFiles/main.dir/src/main.cpp.o: \
  /usr/include/c++/14/bits/ranges_algobase.h \
  /usr/include/c++/14/pstl/glue_algorithm_defs.h \
  /usr/include/c++/14/pstl/execution_defs.h \
- /home/pedro0210/Projects/AsteroidsPthreads/src/GameThreads/../Init/../Ui/Ui.h \
- /home/pedro0210/Projects/AsteroidsPthreads/src/GameThreads/../Init/../Ui/../GameManager/GameManager.h \
+ /home/pedro0210/Projects/AsteroidsPthreads/src/Init/../Ui/Ui.h \
+ /home/pedro0210/Projects/AsteroidsPthreads/src/Init/../Ui/../GameManager/GameManager.h \
  /usr/include/pthread.h /usr/include/sched.h /usr/include/bits/sched.h \
  /usr/include/bits/types/struct_sched_param.h /usr/include/bits/cpu-set.h \
  /usr/include/time.h /usr/include/bits/time.h /usr/include/bits/timex.h \
@@ -134,6 +133,4 @@ CMakeFiles/main.dir/src/main.cpp.o: \
  /usr/include/bits/posix_opt.h /usr/include/bits/environments.h \
  /usr/include/bits/confname.h /usr/include/bits/getopt_posix.h \
  /usr/include/bits/getopt_core.h /usr/include/bits/unistd_ext.h \
- /usr/include/linux/close_range.h \
- /home/pedro0210/Projects/AsteroidsPthreads/src/PlayerInputs/PlayerInputs.h \
- /home/pedro0210/Projects/AsteroidsPthreads/src/PlayerInputs/../Init/Init.h
+ /usr/include/linux/close_range.h

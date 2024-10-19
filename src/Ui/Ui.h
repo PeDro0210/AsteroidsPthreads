@@ -15,6 +15,8 @@ public:
   void lifeDisplay(int life[]);
   void winScreen(int id);
   void loseScreen();
+  void selectionScreen();
+  void deleateSelectionScreen();
 };
 
 #endif // !UI

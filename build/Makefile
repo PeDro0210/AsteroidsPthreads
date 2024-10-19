@@ -249,6 +249,78 @@ src/GameObjects/MovableObjects/Ship.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.s
 .PHONY : src/GameObjects/MovableObjects/Ship.cpp.s
 
+src/GameThreads/GameThreads.o: src/GameThreads/GameThreads.cpp.o
+.PHONY : src/GameThreads/GameThreads.o
+
+# target to build an object file
+src/GameThreads/GameThreads.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/GameThreads/GameThreads.cpp.o
+.PHONY : src/GameThreads/GameThreads.cpp.o
+
+src/GameThreads/GameThreads.i: src/GameThreads/GameThreads.cpp.i
+.PHONY : src/GameThreads/GameThreads.i
+
+# target to preprocess a source file
+src/GameThreads/GameThreads.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/GameThreads/GameThreads.cpp.i
+.PHONY : src/GameThreads/GameThreads.cpp.i
+
+src/GameThreads/GameThreads.s: src/GameThreads/GameThreads.cpp.s
+.PHONY : src/GameThreads/GameThreads.s
+
+# target to generate assembly for a file
+src/GameThreads/GameThreads.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/GameThreads/GameThreads.cpp.s
+.PHONY : src/GameThreads/GameThreads.cpp.s
+
+src/Init/Init.o: src/Init/Init.cpp.o
+.PHONY : src/Init/Init.o
+
+# target to build an object file
+src/Init/Init.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Init/Init.cpp.o
+.PHONY : src/Init/Init.cpp.o
+
+src/Init/Init.i: src/Init/Init.cpp.i
+.PHONY : src/Init/Init.i
+
+# target to preprocess a source file
+src/Init/Init.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Init/Init.cpp.i
+.PHONY : src/Init/Init.cpp.i
+
+src/Init/Init.s: src/Init/Init.cpp.s
+.PHONY : src/Init/Init.s
+
+# target to generate assembly for a file
+src/Init/Init.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Init/Init.cpp.s
+.PHONY : src/Init/Init.cpp.s
+
+src/PlayerInputs/PlayerInputs.o: src/PlayerInputs/PlayerInputs.cpp.o
+.PHONY : src/PlayerInputs/PlayerInputs.o
+
+# target to build an object file
+src/PlayerInputs/PlayerInputs.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/PlayerInputs/PlayerInputs.cpp.o
+.PHONY : src/PlayerInputs/PlayerInputs.cpp.o
+
+src/PlayerInputs/PlayerInputs.i: src/PlayerInputs/PlayerInputs.cpp.i
+.PHONY : src/PlayerInputs/PlayerInputs.i
+
+# target to preprocess a source file
+src/PlayerInputs/PlayerInputs.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/PlayerInputs/PlayerInputs.cpp.i
+.PHONY : src/PlayerInputs/PlayerInputs.cpp.i
+
+src/PlayerInputs/PlayerInputs.s: src/PlayerInputs/PlayerInputs.cpp.s
+.PHONY : src/PlayerInputs/PlayerInputs.s
+
+# target to generate assembly for a file
+src/PlayerInputs/PlayerInputs.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/PlayerInputs/PlayerInputs.cpp.s
+.PHONY : src/PlayerInputs/PlayerInputs.cpp.s
+
 src/Ui/Ui.o: src/Ui/Ui.cpp.o
 .PHONY : src/Ui/Ui.o
 
@@ -345,6 +417,15 @@ help:
 	@echo "... src/GameObjects/MovableObjects/Ship.o"
 	@echo "... src/GameObjects/MovableObjects/Ship.i"
 	@echo "... src/GameObjects/MovableObjects/Ship.s"
+	@echo "... src/GameThreads/GameThreads.o"
+	@echo "... src/GameThreads/GameThreads.i"
+	@echo "... src/GameThreads/GameThreads.s"
+	@echo "... src/Init/Init.o"
+	@echo "... src/Init/Init.i"
+	@echo "... src/Init/Init.s"
+	@echo "... src/PlayerInputs/PlayerInputs.o"
+	@echo "... src/PlayerInputs/PlayerInputs.i"
+	@echo "... src/PlayerInputs/PlayerInputs.s"
 	@echo "... src/Ui/Ui.o"
 	@echo "... src/Ui/Ui.i"
 	@echo "... src/Ui/Ui.s"

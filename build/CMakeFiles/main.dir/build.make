@@ -181,6 +181,48 @@ CMakeFiles/main.dir/src/GameManager/GameManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/GameManager/GameManager.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pedro0210/Projects/AsteroidsPthreads/src/GameManager/GameManager.cpp -o CMakeFiles/main.dir/src/GameManager/GameManager.cpp.s
 
+CMakeFiles/main.dir/src/GameThreads/GameThreads.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/GameThreads/GameThreads.cpp.o: /home/pedro0210/Projects/AsteroidsPthreads/src/GameThreads/GameThreads.cpp
+CMakeFiles/main.dir/src/GameThreads/GameThreads.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pedro0210/Projects/AsteroidsPthreads/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/main.dir/src/GameThreads/GameThreads.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/GameThreads/GameThreads.cpp.o -MF CMakeFiles/main.dir/src/GameThreads/GameThreads.cpp.o.d -o CMakeFiles/main.dir/src/GameThreads/GameThreads.cpp.o -c /home/pedro0210/Projects/AsteroidsPthreads/src/GameThreads/GameThreads.cpp
+
+CMakeFiles/main.dir/src/GameThreads/GameThreads.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/GameThreads/GameThreads.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pedro0210/Projects/AsteroidsPthreads/src/GameThreads/GameThreads.cpp > CMakeFiles/main.dir/src/GameThreads/GameThreads.cpp.i
+
+CMakeFiles/main.dir/src/GameThreads/GameThreads.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/GameThreads/GameThreads.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pedro0210/Projects/AsteroidsPthreads/src/GameThreads/GameThreads.cpp -o CMakeFiles/main.dir/src/GameThreads/GameThreads.cpp.s
+
+CMakeFiles/main.dir/src/Init/Init.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/Init/Init.cpp.o: /home/pedro0210/Projects/AsteroidsPthreads/src/Init/Init.cpp
+CMakeFiles/main.dir/src/Init/Init.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pedro0210/Projects/AsteroidsPthreads/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/main.dir/src/Init/Init.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/Init/Init.cpp.o -MF CMakeFiles/main.dir/src/Init/Init.cpp.o.d -o CMakeFiles/main.dir/src/Init/Init.cpp.o -c /home/pedro0210/Projects/AsteroidsPthreads/src/Init/Init.cpp
+
+CMakeFiles/main.dir/src/Init/Init.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/Init/Init.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pedro0210/Projects/AsteroidsPthreads/src/Init/Init.cpp > CMakeFiles/main.dir/src/Init/Init.cpp.i
+
+CMakeFiles/main.dir/src/Init/Init.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/Init/Init.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pedro0210/Projects/AsteroidsPthreads/src/Init/Init.cpp -o CMakeFiles/main.dir/src/Init/Init.cpp.s
+
+CMakeFiles/main.dir/src/PlayerInputs/PlayerInputs.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/PlayerInputs/PlayerInputs.cpp.o: /home/pedro0210/Projects/AsteroidsPthreads/src/PlayerInputs/PlayerInputs.cpp
+CMakeFiles/main.dir/src/PlayerInputs/PlayerInputs.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pedro0210/Projects/AsteroidsPthreads/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/main.dir/src/PlayerInputs/PlayerInputs.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/PlayerInputs/PlayerInputs.cpp.o -MF CMakeFiles/main.dir/src/PlayerInputs/PlayerInputs.cpp.o.d -o CMakeFiles/main.dir/src/PlayerInputs/PlayerInputs.cpp.o -c /home/pedro0210/Projects/AsteroidsPthreads/src/PlayerInputs/PlayerInputs.cpp
+
+CMakeFiles/main.dir/src/PlayerInputs/PlayerInputs.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/PlayerInputs/PlayerInputs.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pedro0210/Projects/AsteroidsPthreads/src/PlayerInputs/PlayerInputs.cpp > CMakeFiles/main.dir/src/PlayerInputs/PlayerInputs.cpp.i
+
+CMakeFiles/main.dir/src/PlayerInputs/PlayerInputs.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/PlayerInputs/PlayerInputs.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pedro0210/Projects/AsteroidsPthreads/src/PlayerInputs/PlayerInputs.cpp -o CMakeFiles/main.dir/src/PlayerInputs/PlayerInputs.cpp.s
+
 # Object files for target main
 main_OBJECTS = \
 "CMakeFiles/main.dir/src/main.cpp.o" \
@@ -190,7 +232,10 @@ main_OBJECTS = \
 "CMakeFiles/main.dir/src/Ui/Util/ScreenSettingsInit.cpp.o" \
 "CMakeFiles/main.dir/src/GameObjects/MovableObjects/Projectile.cpp.o" \
 "CMakeFiles/main.dir/src/GameObjects/MovableObjects/Asteroids.cpp.o" \
-"CMakeFiles/main.dir/src/GameManager/GameManager.cpp.o"
+"CMakeFiles/main.dir/src/GameManager/GameManager.cpp.o" \
+"CMakeFiles/main.dir/src/GameThreads/GameThreads.cpp.o" \
+"CMakeFiles/main.dir/src/Init/Init.cpp.o" \
+"CMakeFiles/main.dir/src/PlayerInputs/PlayerInputs.cpp.o"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
@@ -203,9 +248,12 @@ main: CMakeFiles/main.dir/src/Ui/Util/ScreenSettingsInit.cpp.o
 main: CMakeFiles/main.dir/src/GameObjects/MovableObjects/Projectile.cpp.o
 main: CMakeFiles/main.dir/src/GameObjects/MovableObjects/Asteroids.cpp.o
 main: CMakeFiles/main.dir/src/GameManager/GameManager.cpp.o
+main: CMakeFiles/main.dir/src/GameThreads/GameThreads.cpp.o
+main: CMakeFiles/main.dir/src/Init/Init.cpp.o
+main: CMakeFiles/main.dir/src/PlayerInputs/PlayerInputs.cpp.o
 main: CMakeFiles/main.dir/build.make
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/pedro0210/Projects/AsteroidsPthreads/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/pedro0210/Projects/AsteroidsPthreads/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
