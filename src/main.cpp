@@ -1,9 +1,9 @@
 #include "GameObjects/MovableObjects/MovableObjects.h"
 #include "Ui/Ui.h"
 #include <cstddef>
+#include <cstdlib>
 #include <ncurses.h>
 #include <pthread.h>
-#include <random>
 #include <unistd.h>
 
 pthread_mutex_t print_mutex;
@@ -17,7 +17,7 @@ std::vector<Asteroid *> asteroids;
 void initializeShip() { debug_ship = new Ship(1, 10, 10); }
 
 void initializeAsteroids() {
-  for (int i = 0; i <= (randomNumberX() % 5) + 1; i++) {
+  for (int i = 0; i <= (rand() % 5) + 1; i++) {
     asteroids.push_back(new bigAsteroid());
   }
 }

@@ -911,7 +911,6 @@ CMakeFiles/main.dir/src/GameObjects/MovableObjects/Asteroids.cpp.o
  /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stddef.h
  /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdint.h
  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameManager/GameManager.h
- /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/Util/RandomNumberGenerator.cpp
  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/Util/Util.h
  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/MovableObjects.h
 

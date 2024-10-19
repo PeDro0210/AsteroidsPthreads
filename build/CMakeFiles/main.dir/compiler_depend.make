@@ -910,7 +910,6 @@ CMakeFiles/main.dir/src/GameObjects/MovableObjects/Asteroids.cpp.o: /Users/pedro
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdint.h \
   /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameManager/GameManager.h \
-  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/Util/RandomNumberGenerator.cpp \
   /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/Util/Util.h \
   /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/MovableObjects/MovableObjects.h
 
@@ -7566,8 +7565,6 @@ CMakeFiles/main.dir/src/main.cpp.o: /Users/pedroavila/Projects/AsteroidsPthreads
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__algorithm/adjacent_find.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__algorithm/transform.h:
-
-/Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/GameObjects/Util/RandomNumberGenerator.cpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__compare/is_eq.h:
 

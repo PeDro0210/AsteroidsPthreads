@@ -1,9 +1,7 @@
-#include "../Util/RandomNumberGenerator.cpp"
 #include "MovableObjects.h"
 #include <cstdlib>
 
-Asteroid::Asteroid()
-    : MovableObject(randomNumberX(), randomNumberY(), FacingUp) {
+Asteroid::Asteroid() : MovableObject(rand() % 100, rand() % 32, FacingUp) {
   settingRandomFacing();
 }
 
