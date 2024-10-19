@@ -129,6 +129,30 @@ main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
+src/GameInputs/GameInputs.o: src/GameInputs/GameInputs.cpp.o
+.PHONY : src/GameInputs/GameInputs.o
+
+# target to build an object file
+src/GameInputs/GameInputs.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/GameInputs/GameInputs.cpp.o
+.PHONY : src/GameInputs/GameInputs.cpp.o
+
+src/GameInputs/GameInputs.i: src/GameInputs/GameInputs.cpp.i
+.PHONY : src/GameInputs/GameInputs.i
+
+# target to preprocess a source file
+src/GameInputs/GameInputs.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/GameInputs/GameInputs.cpp.i
+.PHONY : src/GameInputs/GameInputs.cpp.i
+
+src/GameInputs/GameInputs.s: src/GameInputs/GameInputs.cpp.s
+.PHONY : src/GameInputs/GameInputs.s
+
+# target to generate assembly for a file
+src/GameInputs/GameInputs.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/GameInputs/GameInputs.cpp.s
+.PHONY : src/GameInputs/GameInputs.cpp.s
+
 src/GameManager/GameManager.o: src/GameManager/GameManager.cpp.o
 .PHONY : src/GameManager/GameManager.o
 
@@ -249,6 +273,54 @@ src/GameObjects/MovableObjects/Ship.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.s
 .PHONY : src/GameObjects/MovableObjects/Ship.cpp.s
 
+src/Initializer/Initializer.o: src/Initializer/Initializer.cpp.o
+.PHONY : src/Initializer/Initializer.o
+
+# target to build an object file
+src/Initializer/Initializer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Initializer/Initializer.cpp.o
+.PHONY : src/Initializer/Initializer.cpp.o
+
+src/Initializer/Initializer.i: src/Initializer/Initializer.cpp.i
+.PHONY : src/Initializer/Initializer.i
+
+# target to preprocess a source file
+src/Initializer/Initializer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Initializer/Initializer.cpp.i
+.PHONY : src/Initializer/Initializer.cpp.i
+
+src/Initializer/Initializer.s: src/Initializer/Initializer.cpp.s
+.PHONY : src/Initializer/Initializer.s
+
+# target to generate assembly for a file
+src/Initializer/Initializer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Initializer/Initializer.cpp.s
+.PHONY : src/Initializer/Initializer.cpp.s
+
+src/Threads/Threads.o: src/Threads/Threads.cpp.o
+.PHONY : src/Threads/Threads.o
+
+# target to build an object file
+src/Threads/Threads.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Threads/Threads.cpp.o
+.PHONY : src/Threads/Threads.cpp.o
+
+src/Threads/Threads.i: src/Threads/Threads.cpp.i
+.PHONY : src/Threads/Threads.i
+
+# target to preprocess a source file
+src/Threads/Threads.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Threads/Threads.cpp.i
+.PHONY : src/Threads/Threads.cpp.i
+
+src/Threads/Threads.s: src/Threads/Threads.cpp.s
+.PHONY : src/Threads/Threads.s
+
+# target to generate assembly for a file
+src/Threads/Threads.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Threads/Threads.cpp.s
+.PHONY : src/Threads/Threads.cpp.s
+
 src/Ui/Ui.o: src/Ui/Ui.cpp.o
 .PHONY : src/Ui/Ui.o
 
@@ -330,6 +402,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... main"
+	@echo "... src/GameInputs/GameInputs.o"
+	@echo "... src/GameInputs/GameInputs.i"
+	@echo "... src/GameInputs/GameInputs.s"
 	@echo "... src/GameManager/GameManager.o"
 	@echo "... src/GameManager/GameManager.i"
 	@echo "... src/GameManager/GameManager.s"
@@ -345,6 +420,12 @@ help:
 	@echo "... src/GameObjects/MovableObjects/Ship.o"
 	@echo "... src/GameObjects/MovableObjects/Ship.i"
 	@echo "... src/GameObjects/MovableObjects/Ship.s"
+	@echo "... src/Initializer/Initializer.o"
+	@echo "... src/Initializer/Initializer.i"
+	@echo "... src/Initializer/Initializer.s"
+	@echo "... src/Threads/Threads.o"
+	@echo "... src/Threads/Threads.i"
+	@echo "... src/Threads/Threads.s"
 	@echo "... src/Ui/Ui.o"
 	@echo "... src/Ui/Ui.i"
 	@echo "... src/Ui/Ui.s"

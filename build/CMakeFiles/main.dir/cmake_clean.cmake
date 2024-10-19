@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/main.dir/src/GameInputs/GameInputs.cpp.o"
+  "CMakeFiles/main.dir/src/GameInputs/GameInputs.cpp.o.d"
   "CMakeFiles/main.dir/src/GameManager/GameManager.cpp.o"
   "CMakeFiles/main.dir/src/GameManager/GameManager.cpp.o.d"
   "CMakeFiles/main.dir/src/GameObjects/MovableObjects/Asteroids.cpp.o"
@@ -9,6 +11,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/main.dir/src/GameObjects/MovableObjects/Projectile.cpp.o.d"
   "CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.o"
   "CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.o.d"
+  "CMakeFiles/main.dir/src/Initializer/Initializer.cpp.o"
+  "CMakeFiles/main.dir/src/Initializer/Initializer.cpp.o.d"
+  "CMakeFiles/main.dir/src/Threads/Threads.cpp.o"
+  "CMakeFiles/main.dir/src/Threads/Threads.cpp.o.d"
   "CMakeFiles/main.dir/src/Ui/Ui.cpp.o"
   "CMakeFiles/main.dir/src/Ui/Ui.cpp.o.d"
   "CMakeFiles/main.dir/src/Ui/Util/ScreenSettingsInit.cpp.o"

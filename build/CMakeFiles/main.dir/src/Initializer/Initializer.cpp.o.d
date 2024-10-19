@@ -1,10 +1,10 @@
-CMakeFiles/main.dir/src/main.cpp.o: \
- /home/pedro0210/Projects/AsteroidsPthreads/src/main.cpp \
+CMakeFiles/main.dir/src/Initializer/Initializer.cpp.o: \
+ /home/pedro0210/Projects/AsteroidsPthreads/src/Initializer/Initializer.cpp \
  /usr/include/stdc-predef.h \
- /home/pedro0210/Projects/AsteroidsPthreads/src/GameInputs/GameInputs.h \
- /home/pedro0210/Projects/AsteroidsPthreads/src/GameInputs/../GameObjects/MovableObjects/MovableObjects.h \
- /home/pedro0210/Projects/AsteroidsPthreads/src/GameInputs/../GameObjects/MovableObjects/../../GameManager/GameManager.h \
- /home/pedro0210/Projects/AsteroidsPthreads/src/GameInputs/../GameObjects/MovableObjects/../Util/Util.h \
+ /home/pedro0210/Projects/AsteroidsPthreads/src/Initializer/Initializer.h \
+ /home/pedro0210/Projects/AsteroidsPthreads/src/Initializer/../GameObjects/MovableObjects/MovableObjects.h \
+ /home/pedro0210/Projects/AsteroidsPthreads/src/Initializer/../GameObjects/MovableObjects/../../GameManager/GameManager.h \
+ /home/pedro0210/Projects/AsteroidsPthreads/src/Initializer/../GameObjects/MovableObjects/../Util/Util.h \
  /usr/include/curses.h /usr/include/ncurses_dll.h \
  /usr/lib/gcc/x86_64-redhat-linux/14/include/stdint.h \
  /usr/include/stdint.h /usr/include/bits/libc-header-start.h \
@@ -110,14 +110,12 @@ CMakeFiles/main.dir/src/main.cpp.o: \
  /usr/include/c++/14/bits/stl_uninitialized.h \
  /usr/include/c++/14/bits/stl_vector.h \
  /usr/include/c++/14/bits/stl_bvector.h \
- /usr/include/c++/14/bits/vector.tcc \
- /home/pedro0210/Projects/AsteroidsPthreads/src/GameInputs/../Initializer/Initializer.h \
- /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h \
- /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h \
- /usr/include/SDL2/SDL_config-x86_64.h /usr/include/SDL2/SDL_platform.h \
- /usr/include/SDL2/begin_code.h /usr/include/SDL2/close_code.h \
- /usr/include/c++/14/stdlib.h /usr/include/string.h \
- /usr/include/strings.h /usr/include/inttypes.h \
+ /usr/include/c++/14/bits/vector.tcc /usr/include/SDL2/SDL.h \
+ /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h \
+ /usr/include/SDL2/SDL_config.h /usr/include/SDL2/SDL_config-x86_64.h \
+ /usr/include/SDL2/SDL_platform.h /usr/include/SDL2/begin_code.h \
+ /usr/include/SDL2/close_code.h /usr/include/c++/14/stdlib.h \
+ /usr/include/string.h /usr/include/strings.h /usr/include/inttypes.h \
  /usr/include/c++/14/math.h /usr/include/c++/14/cmath /usr/include/math.h \
  /usr/include/bits/math-vector.h /usr/include/bits/libm-simd-decl-stubs.h \
  /usr/include/bits/flt-eval-method.h /usr/include/bits/fp-logb.h \
@@ -269,19 +267,4 @@ CMakeFiles/main.dir/src/main.cpp.o: \
  /usr/include/bits/posix_opt.h /usr/include/bits/environments.h \
  /usr/include/bits/confname.h /usr/include/bits/getopt_posix.h \
  /usr/include/bits/getopt_core.h /usr/include/bits/unistd_ext.h \
- /usr/include/linux/close_range.h \
- /home/pedro0210/Projects/AsteroidsPthreads/src/Threads/Threads.h \
- /home/pedro0210/Projects/AsteroidsPthreads/src/Threads/../GameManager/FunctionManager.h \
- /usr/include/c++/14/algorithm /usr/include/c++/14/bits/stl_algo.h \
- /usr/include/c++/14/bits/algorithmfwd.h \
- /usr/include/c++/14/bits/stl_heap.h \
- /usr/include/c++/14/bits/uniform_int_dist.h \
- /usr/include/c++/14/bits/stl_tempbuf.h \
- /usr/include/c++/14/bits/ranges_algo.h \
- /usr/include/c++/14/bits/ranges_algobase.h \
- /usr/include/c++/14/pstl/glue_algorithm_defs.h \
- /usr/include/c++/14/pstl/execution_defs.h \
- /home/pedro0210/Projects/AsteroidsPthreads/src/Threads/../Initializer/Initializer.h \
- /home/pedro0210/Projects/AsteroidsPthreads/src/Threads/../Ui/Ui.h \
- /home/pedro0210/Projects/AsteroidsPthreads/src/Threads/../Ui/../GameManager/GameManager.h \
- /home/pedro0210/Projects/AsteroidsPthreads/src/Ui/Ui.h
+ /usr/include/linux/close_range.h

@@ -90,6 +90,4 @@ void UiManagers::deleateSelectionScreen() {
             "          "); // Overwrite "ONE PLAYER"
   mvwprintw(stdscr, settings->startY + 11, settings->startX + 20,
             "          "); // Overwrite "TWO PLAYER"
-
-  wrefresh(stdscr);
 }

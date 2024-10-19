@@ -15,6 +15,9 @@ add_executable(
   src/GameObjects/MovableObjects/Projectile.cpp
   src/GameObjects/MovableObjects/Asteroids.cpp
   src/GameManager/GameManager.cpp
+  src/GameInputs/GameInputs.cpp
+  src/Initializer/Initializer.cpp
+  src/Threads/Threads.cpp
 )
 
 target_link_libraries(main PRIVATE pthread)

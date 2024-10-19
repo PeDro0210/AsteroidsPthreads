@@ -8,11 +8,14 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/pedro0210/Projects/AsteroidsPthreads/src/GameInputs/GameInputs.cpp" "CMakeFiles/main.dir/src/GameInputs/GameInputs.cpp.o" "gcc" "CMakeFiles/main.dir/src/GameInputs/GameInputs.cpp.o.d"
   "/home/pedro0210/Projects/AsteroidsPthreads/src/GameManager/GameManager.cpp" "CMakeFiles/main.dir/src/GameManager/GameManager.cpp.o" "gcc" "CMakeFiles/main.dir/src/GameManager/GameManager.cpp.o.d"
   "/home/pedro0210/Projects/AsteroidsPthreads/src/GameObjects/MovableObjects/Asteroids.cpp" "CMakeFiles/main.dir/src/GameObjects/MovableObjects/Asteroids.cpp.o" "gcc" "CMakeFiles/main.dir/src/GameObjects/MovableObjects/Asteroids.cpp.o.d"
   "/home/pedro0210/Projects/AsteroidsPthreads/src/GameObjects/MovableObjects/MovableObject.cpp" "CMakeFiles/main.dir/src/GameObjects/MovableObjects/MovableObject.cpp.o" "gcc" "CMakeFiles/main.dir/src/GameObjects/MovableObjects/MovableObject.cpp.o.d"
   "/home/pedro0210/Projects/AsteroidsPthreads/src/GameObjects/MovableObjects/Projectile.cpp" "CMakeFiles/main.dir/src/GameObjects/MovableObjects/Projectile.cpp.o" "gcc" "CMakeFiles/main.dir/src/GameObjects/MovableObjects/Projectile.cpp.o.d"
   "/home/pedro0210/Projects/AsteroidsPthreads/src/GameObjects/MovableObjects/Ship.cpp" "CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.o" "gcc" "CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.o.d"
+  "/home/pedro0210/Projects/AsteroidsPthreads/src/Initializer/Initializer.cpp" "CMakeFiles/main.dir/src/Initializer/Initializer.cpp.o" "gcc" "CMakeFiles/main.dir/src/Initializer/Initializer.cpp.o.d"
+  "/home/pedro0210/Projects/AsteroidsPthreads/src/Threads/Threads.cpp" "CMakeFiles/main.dir/src/Threads/Threads.cpp.o" "gcc" "CMakeFiles/main.dir/src/Threads/Threads.cpp.o.d"
   "/home/pedro0210/Projects/AsteroidsPthreads/src/Ui/Ui.cpp" "CMakeFiles/main.dir/src/Ui/Ui.cpp.o" "gcc" "CMakeFiles/main.dir/src/Ui/Ui.cpp.o.d"
   "/home/pedro0210/Projects/AsteroidsPthreads/src/Ui/Util/ScreenSettingsInit.cpp" "CMakeFiles/main.dir/src/Ui/Util/ScreenSettingsInit.cpp.o" "gcc" "CMakeFiles/main.dir/src/Ui/Util/ScreenSettingsInit.cpp.o.d"
   "/home/pedro0210/Projects/AsteroidsPthreads/src/main.cpp" "CMakeFiles/main.dir/src/main.cpp.o" "gcc" "CMakeFiles/main.dir/src/main.cpp.o.d"
