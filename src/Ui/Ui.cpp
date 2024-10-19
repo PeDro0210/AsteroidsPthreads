@@ -78,3 +78,18 @@ void UiManagers::loseScreen() {
     }
   }
 }
+
+void UiManagers::selectionScreen() {
+
+  mvwprintw(stdscr, settings->startY + 10, settings->startX + 20, "ONE PLAYER");
+  mvwprintw(stdscr, settings->startY + 11, settings->startX + 20, "TWO PLAYER");
+}
+
+void UiManagers::deleateSelectionScreen() {
+  mvwprintw(stdscr, settings->startY + 10, settings->startX + 20,
+            "          "); // Overwrite "ONE PLAYER"
+  mvwprintw(stdscr, settings->startY + 11, settings->startX + 20,
+            "          "); // Overwrite "TWO PLAYER"
+
+  wrefresh(stdscr);
+}

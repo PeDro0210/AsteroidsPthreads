@@ -19,3 +19,4 @@ add_executable(
 
 target_link_libraries(main PRIVATE pthread)
 target_link_libraries(main PRIVATE ncurses)
+target_link_libraries(main PRIVATE SDL2)

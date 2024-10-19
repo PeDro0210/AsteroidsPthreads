@@ -1,6 +1,7 @@
 #include "GameManager/FunctionManager.h"
 #include "GameObjects/MovableObjects/MovableObjects.h"
 #include "Ui/Ui.h"
+#include <SDL2/SDL.h>
 #include <cstddef>
 #include <cstdlib>
 #include <ncurses.h>
@@ -19,7 +20,7 @@ Ship *ships[2];
 
 void initializeShip() {
   for (int i = 0; i <= 1; i++) {
-    ships[i] = new Ship(i, 0, 0);
+    ships[i] = new Ship(i, i * 5, i * 5);
     all_objects.push_back(ships[i]);
   }
 }
@@ -41,7 +42,7 @@ void initializeAsteroidsTwoPlayers() {
 }
 
 void *uiRenderLoopScreen1(void *arg) {
-  UiManagers *ui_manager = new UiManagers();
+  UiManagers *ui_manager = static_cast<UiManagers *>(arg);
 
   while (true) {
 
@@ -50,7 +51,7 @@ void *uiRenderLoopScreen1(void *arg) {
 
     int scores[2] = {ships[0]->getScore(), ships[1]->getScore()};
     ui_manager->scoreDisplay(scores); // can't pass it directly, bowhomp
-                                      //
+
     int lifes[2] = {ships[0]->getLife(), ships[1]->getScore()};
     ui_manager->lifeDisplay(lifes);
 
@@ -98,7 +99,6 @@ void *uiRenderLoopScreen2(void *arg) {
   return nullptr;
 }
 
-// f*** DRY, I'll do the same for player 2
 void *playerRenderLoop(void *arg) {
   // TODO:RECOMMENT
   Ship *ship = static_cast<Ship *>(arg);
@@ -135,9 +135,9 @@ void *playerRenderLoop(void *arg) {
       projectile->alive();
 
       if (!projectile->isDestroyed()) {
-        projectile->render(); // Render at new position
+        projectile->render();
       } else {
-        objects_to_destroy.push_back(projectile); // Mark for removal
+        objects_to_destroy.push_back(projectile);
       }
     }
 
@@ -146,12 +146,8 @@ void *playerRenderLoop(void *arg) {
       ship->takeOutLife();
       ship->unDestroyed();
       all_objects.push_back(ship);
-      if (ship->getLife() <= 0) {
-        // Handle game-over logic if necessary
-      }
     }
 
-    overlapperChecker(all_objects, ships);
     refresh();
 
     pthread_mutex_unlock(&print_mutex);
@@ -192,6 +188,8 @@ void *asteroidsRenderLoop(void *arg) {
         objects_to_destroy.push_back(asteroid);
       }
     }
+
+    overlapperChecker(all_objects, ships);
     objectDestroyer(objects_to_destroy, all_objects, projectile_ship1,
                     asteroids);
 
@@ -239,72 +237,131 @@ void *inputPlayer1Loop(void *arg) {
 
 void *inputPlayer2Loop(void *arg) {
   Ship *ship = static_cast<Ship *>(arg);
-  while (true) {
-    pthread_mutex_lock(&print_mutex);
-    char ch = getch();
+  SDL_Init(SDL_INIT_GAMECONTROLLER); // Initialize SDL for controller input
 
-    if (ch == 'i') {
-      ship->lookUp();
-    }
-    if (ch == 'k') {
-      ship->lookDown();
-    }
-
-    if (ch == 'j') {
-      ship->lookLeft();
-    }
-
-    if (ch == 'l') {
-      ship->lookRight();
-    }
-
-    if (ch == '\n') { // enter key, lmao. Clever way of asking for inputs
-      projectile_ship2.push_back(ship->fire());
-    }
-
-    pthread_mutex_unlock(&print_mutex);
-    usleep(10000);
+  SDL_GameController *controller = nullptr;
+  if (SDL_NumJoysticks() > 0) {
+    controller =
+        SDL_GameControllerOpen(0); // Open the first available controller
   }
+
+  if (!controller) {
+    mvwprintw(stdscr, 25, 25, "no controller");
+    return nullptr;
+  }
+
+  while (true) {
+    SDL_Event event;
+    while (SDL_PollEvent(&event)) { // Poll for events
+      if (event.type == SDL_QUIT) {
+        SDL_GameControllerClose(controller);
+        SDL_Quit();
+        return nullptr;
+      }
+
+      if (event.type == SDL_CONTROLLERAXISMOTION) {
+        // Handle axis motion (e.g., joystick movement)
+      }
+
+      if (event.type == SDL_CONTROLLERBUTTONDOWN) {
+        switch (event.cbutton.button) {
+        case SDL_CONTROLLER_BUTTON_DPAD_UP:
+          ship->lookUp();
+          break;
+        case SDL_CONTROLLER_BUTTON_DPAD_DOWN:
+          ship->lookDown();
+          break;
+        case SDL_CONTROLLER_BUTTON_DPAD_LEFT:
+          ship->lookLeft();
+          break;
+        case SDL_CONTROLLER_BUTTON_DPAD_RIGHT:
+          ship->lookRight();
+          break;
+        case SDL_CONTROLLER_BUTTON_A:
+          projectile_ship2.push_back(ship->fire());
+          break;
+        default:
+          break;
+        }
+      }
+    }
+
+    usleep(10000); // Sleep to prevent busy-waiting
+  }
+
+  SDL_GameControllerClose(controller);
+  SDL_Quit();
   return nullptr;
 }
 
 int main() {
-
   pthread_t player_threads[2];
   pthread_t ship_render_thread[2];
-
   pthread_t ui_render_thread, asteroid_render_thread;
 
+  int selection = 0; // Initialize selection
   // Initialize ncurses
   initscr();
   cbreak();
   noecho();
   timeout(0);
   keypad(stdscr, TRUE);
-
+  nodelay(stdscr, TRUE);
   pthread_mutex_init(&print_mutex, NULL);
 
-  srand(static_cast<unsigned int>(time(0))); // for the random
+  srand(static_cast<unsigned int>(time(0))); // for random seed
   initializeShip();
 
-  // This config mostly for screen1
-  initializeAsteroidsNormalMode();
+  UiManagers *ui_manager = new UiManagers();
 
-  pthread_create(&ui_render_thread, NULL, uiRenderLoopScreen1, NULL);
-  pthread_create(&asteroid_render_thread, NULL, asteroidsRenderLoop,
-                 NULL); // FOR DEBUGGING
-                        //
-  pthread_create(&player_threads[0], NULL, inputPlayer1Loop, ships[0]);
+  while (true) {
+    char ch = getch();
+    if (ch == '1') {
+      selection = 1;
+      break;
+    }
 
-  pthread_create(&ship_render_thread[0], NULL, playerRenderLoop, ships[0]);
+    if (ch == '2') {
+      selection = 2;
+      break;
+    }
 
-  // Create threads for rendering and input
+    ui_manager->selectionScreen();
+  }
 
-  pthread_join(ui_render_thread, NULL);
-  pthread_join(asteroid_render_thread, NULL); // DEBUGGING
-  pthread_join(player_threads[0], NULL);
-  pthread_join(ship_render_thread[0], NULL);
+  ui_manager->deleateSelectionScreen();
+
+  // After obtaining selection, initialize game modes based on the selection
+  if (selection == 1) {
+    initializeAsteroidsNormalMode();
+    pthread_create(&ui_render_thread, NULL, uiRenderLoopScreen1, ui_manager);
+    pthread_create(&asteroid_render_thread, NULL, asteroidsRenderLoop, NULL);
+    pthread_create(&player_threads[0], NULL, inputPlayer1Loop, ships[0]);
+    pthread_create(&ship_render_thread[0], NULL, playerRenderLoop, ships[0]);
+
+    pthread_join(ui_render_thread, NULL);
+    pthread_join(asteroid_render_thread, NULL);
+    pthread_join(player_threads[0], NULL);
+    pthread_join(ship_render_thread[0], NULL);
+  } else if (selection == 2) {
+    initializeAsteroidsTwoPlayers();
+    pthread_create(&ui_render_thread, NULL, uiRenderLoopScreen1, ui_manager);
+    pthread_create(&asteroid_render_thread, NULL, asteroidsRenderLoop, NULL);
+    pthread_create(&player_threads[0], NULL, inputPlayer1Loop, ships[0]);
+    pthread_create(&ship_render_thread[0], NULL, playerRenderLoop, ships[0]);
+    pthread_create(&player_threads[1], NULL, inputPlayer2Loop, ships[1]);
+    pthread_create(&ship_render_thread[1], NULL, playerRenderLoop, ships[1]);
+
+    pthread_join(ui_render_thread, NULL);
+    pthread_join(asteroid_render_thread, NULL);
+    pthread_join(player_threads[0], NULL);
+    pthread_join(ship_render_thread[0], NULL);
+    pthread_join(player_threads[1], NULL);
+    pthread_join(ship_render_thread[1], NULL);
+  }
 
   pthread_mutex_destroy(&print_mutex);
+  delete ui_manager; // Clean up allocated memory
+  endwin();          // End ncurses properly
   return 0;
 }
