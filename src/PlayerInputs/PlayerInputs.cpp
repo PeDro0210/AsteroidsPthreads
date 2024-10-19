@@ -53,7 +53,7 @@ void *inputPlayer2Loop(void *arg) {
       ship->lookRight();
     }
 
-    if (ch == '\n') { // enter key, lmao. Clever way of asking for inputs
+    if (ch == 'p') { // This shitty asf, why not an enum for enter
       projectile_ship2.push_back(ship->fire());
     }
 

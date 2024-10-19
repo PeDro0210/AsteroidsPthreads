@@ -9,24 +9,20 @@ void objectDestroyer(std::vector<MovableObject *> &object_to_destroy,
                      std::vector<Projectile *> &projectile_ship,
                      std::vector<Asteroid *> &asteroids) {
 
-  // Iterate over the objects to destroy
   for (MovableObject *object : object_to_destroy) {
     object->erase(object->getPos()[0], object->getPos()[1]);
     all_objects.erase(
         std::remove(all_objects.begin(), all_objects.end(), object),
-        all_objects.end()); // GRAWW MAGIC METHOD
+        all_objects.end()); // GRAWW MAGIC METHOD, for erasing
 
     if (Projectile *proj = dynamic_cast<Projectile *>(
-            object)) { // Casts to Projectile with polymorphism, I didn't do
-                       // that
+            object)) { // Casts the object if possible
       projectile_ship.erase(
           std::remove(projectile_ship.begin(), projectile_ship.end(), proj),
           projectile_ship.end());
     }
 
-    if (Asteroid *asteroid = dynamic_cast<Asteroid *>(
-            object)) { // Casts to Projectile with polymorphism, I didn't do
-                       // that
+    if (Asteroid *asteroid = dynamic_cast<Asteroid *>(object)) { // Same here
       asteroids.erase(std::remove(asteroids.begin(), asteroids.end(), asteroid),
                       asteroids.end());
     }
@@ -40,20 +36,28 @@ void pointAdder(MovableObject *object1, MovableObject *object2, Ship *ships[]) {
   if ((dynamic_cast<Projectile *>(object1) &&
        dynamic_cast<littleAsteroid *>(object2)) ||
       (dynamic_cast<littleAsteroid *>(object1) &&
-       dynamic_cast<Projectile *>(object2))) {
+       dynamic_cast<Projectile *>(
+           object2))) { // Check if those any of those characters are
+                        // Projectiles or littleAsteroid
 
     Projectile *projectile = dynamic_cast<Projectile *>(object1)
                                  ? dynamic_cast<Projectile *>(object1)
-                                 : dynamic_cast<Projectile *>(object2);
+                                 : dynamic_cast<Projectile *>(
+                                       object2); // trys the casting for both
+                                                 // classes, to see if possible
 
-    littleAsteroid *asteroid = dynamic_cast<littleAsteroid *>(object1)
-                                   ? dynamic_cast<littleAsteroid *>(object1)
-                                   : dynamic_cast<littleAsteroid *>(object2);
+    littleAsteroid *asteroid =
+        dynamic_cast<littleAsteroid *>(object1)
+            ? dynamic_cast<littleAsteroid *>(object1)
+            : dynamic_cast<littleAsteroid *>(
+                  object2); // Same in here, at the end, one of them it's that
+                            // class
 
     if (asteroid->isDestroyed())
-      return;
+      return; // in case the asteroid has already been destroyed and doesn't add
+              // more points
 
-    ships[projectile->getId()]->addScore();
+    ships[projectile->getId()]->addScore(); // adds the points
   }
 }
 

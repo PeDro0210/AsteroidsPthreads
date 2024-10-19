@@ -37,6 +37,7 @@ int Ship::getLife() { return lifes; }
 int Ship::getScore() { return score; }
 int Ship::getId() { return id; }
 // TODO: fix this, to follow the order of the orietantion as told
+// FIXED :D
 Projectile *Ship::fire() {
   switch (getOrientation()) {
   case FacingUp:

@@ -10,8 +10,7 @@ std::vector<Asteroid *> asteroids;
 Ship *ships[2];
 UiManagers *ui_manager = new UiManagers();
 
-// init the ship
-
+// Init the ships
 void initializeShip() {
   for (int i = 0; i <= 1; i++) {
     ships[i] = new Ship(i, i * 3, i * 3);

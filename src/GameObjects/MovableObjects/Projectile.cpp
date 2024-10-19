@@ -18,7 +18,7 @@ Projectile::Projectile(int id, Orientation orientation, int x_pos, int y_pos)
   }
 }
 
-void Projectile::addingAge() {
+void Projectile::addingAge() { // random number for adding age
   float delta_time = 1.0f / 2.0f;
   age += delta_time;
 }

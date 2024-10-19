@@ -1,9 +1,11 @@
 #include "../../Ui/Util/ScreenSettingsInit.h"
 #include "MovableObjects.h"
 #include <array>
+
 MovableObject::MovableObject(int x, int y, Orientation orientation)
     : x_pos(x), y_pos(y), orientation(orientation), settings(settingsSetup()) {}
 
+// This is pure magic, like no need to explain okay :D
 void MovableObject::keepOnLimits() {
   if (x_pos < settings->startX + 1) {
     x_pos = settings->startX + settings->boxWidth - 2;

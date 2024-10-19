@@ -8,10 +8,13 @@ void *uiRenderLoopScreen1(void *arg) {
     pthread_mutex_lock(&print_mutex);
     ui_manager->gameDisplay();
 
-    int scores[2] = {ships[0]->getScore(), ships[1]->getScore()};
-    ui_manager->scoreDisplay(scores); // can't pass it directly, bowhomp
-                                      //
-    int lifes[2] = {ships[0]->getLife(), ships[1]->getScore()};
+    int scores[2] = {ships[0]->getScore(),
+                     ships[1]->getScore()}; // pass the score of both
+    ui_manager->scoreDisplay(scores);       // can't pass it directly, bowhomp
+
+    int lifes[2] = {
+        ships[0]->getLife(),
+        ships[1]->getLife()}; // Lmao, I typo getScore for the second one, LMAO
     ui_manager->lifeDisplay(lifes);
 
     if (ships[0]->getScore() >= 40) {
@@ -39,8 +42,8 @@ void *uiRenderLoopScreen2(void *arg) {
 
     int scores[2] = {ships[0]->getScore(), ships[1]->getScore()};
     ui_manager->scoreDisplay(scores); // can't pass it directly, bowhomp
-                                      //
-    int lifes[2] = {ships[0]->getLife(), ships[1]->getScore()};
+
+    int lifes[2] = {ships[0]->getLife(), ships[1]->getLife()};
     ui_manager->lifeDisplay(lifes);
 
     if (ships[0]->getScore() >= 60 || ships[1]->getLife() <= 0) {
@@ -58,12 +61,23 @@ void *uiRenderLoopScreen2(void *arg) {
   return nullptr;
 }
 
-// f*** DRY, I'll do the same for player 2
+// At the end, I did followed DRY
 void *playerRenderLoop(void *arg) {
   // TODO:RECOMMENT
   Ship *ship = static_cast<Ship *>(arg);
+
+  /*
+   * A bug occured, where the ship didn't spawn on the limits of the screen,
+   * and for some reason while not being in the limits the takeOutLife method
+   * keept calling itself, so by moving it foward, the ship appears again in the
+   * screen with the keepOnLimits method.
+   *
+   * Fix :D
+   */
   ship->MoveFoward();
-  int lastX = ship->getPos()[0];
+
+  int lastX = ship->getPos()[0]; // need to keep track of the last position, if
+                                 // not it keeps a trail
   int lastY = ship->getPos()[1];
 
   while (true) {
@@ -72,15 +86,21 @@ void *playerRenderLoop(void *arg) {
     ship->erase(lastX, lastY);
     ship->render();
 
+    // get the latest position in the newest iteration
     lastX = ship->getPos()[0];
     lastY = ship->getPos()[1];
 
     std::vector<Projectile *> projectile_ship;
 
+    // Sees the id of the ship, for pushing the projectiles
     if (ship->getId() == 0) {
       projectile_ship = projectile_ship1;
+      objectDestroyer(objects_to_destroy, all_objects, projectile_ship,
+                      asteroids);
     } else {
       projectile_ship = projectile_ship2;
+      objectDestroyer(objects_to_destroy, all_objects, projectile_ship,
+                      asteroids);
     }
 
     for (Projectile *projectile : projectile_ship) {
@@ -92,26 +112,27 @@ void *playerRenderLoop(void *arg) {
       projectile->erase(lastX_projectile, lastY_projectile);
       projectile->MoveFoward();
       projectile->addingAge();
-      projectile->alive();
+      projectile->alive(); // makes it older, for dying
 
       if (!projectile->isDestroyed()) {
-        projectile->render(); // Render at new position
+        projectile->render();
       } else {
-        objects_to_destroy.push_back(projectile); // Mark for removal
+        objects_to_destroy.push_back(projectile);
       }
     }
 
-    // Handle ship destruction logic
+    /*
+     * kinda of a trick in here, by Destroying it, we can go trough most of the
+     * rules of the other movableobjects, but it has more chances, soo whenever
+     * it destroys, it just takes out a life
+     */
     if (ship->isDestroyed()) {
       ship->takeOutLife();
       ship->unDestroyed();
       all_objects.push_back(ship);
-      if (ship->getLife() <= 0) {
-        // Handle game-over logic if necessary
-      }
     }
 
-    overlapperChecker(all_objects, ships);
+    overlapperChecker(all_objects, ships); // all it's ass function
     refresh();
 
     pthread_mutex_unlock(&print_mutex);
@@ -126,7 +147,6 @@ void *asteroidsRenderLoop(void *arg) {
   while (true) {
 
     pthread_mutex_lock(&print_mutex);
-    // DEBUGGING
     for (Asteroid *asteroid : asteroids) {
 
       int lastX = asteroid->getPos()[0];
@@ -152,12 +172,7 @@ void *asteroidsRenderLoop(void *arg) {
         objects_to_destroy.push_back(asteroid);
       }
     }
-    objectDestroyer(objects_to_destroy, all_objects, projectile_ship1,
-                    asteroids);
-
-    // DEBUGGING
     refresh();
-    //* Putting all the code for the logic
     pthread_mutex_unlock(&print_mutex);
 
     usleep(99999);
