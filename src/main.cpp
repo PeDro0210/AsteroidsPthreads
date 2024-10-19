@@ -68,7 +68,7 @@ int main() {
 
   } else if (selection == 2) { // creating specific threads
     initializeAsteroidsTwoPlayers();
-    pthread_create(&ui_render_thread, NULL, uiRenderLoopScreen1, ui_manager);
+    pthread_create(&ui_render_thread, NULL, uiRenderLoopScreen2, ui_manager);
 
     pthread_create(&player_threads[1], NULL, inputPlayer2Loop, ships[1]);
     pthread_create(&ship_render_thread[1], NULL, playerRenderLoop, ships[1]);
