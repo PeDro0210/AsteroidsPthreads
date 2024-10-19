@@ -54,20 +54,21 @@ public:
 
 class Asteroid : public MovableObject {
 public:
-  Asteroid();
+  Asteroid(int x, int y);
   void settingRandomFacing();
 };
 
 class littleAsteroid : public Asteroid {
 public:
-  littleAsteroid();
+  littleAsteroid(int x, int y);
 };
 
 class bigAsteroid : public Asteroid {
 public:
   bigAsteroid();
   std::array<littleAsteroid *, 2>
-  splitAsteroid(); // using std::array instead of vector, because of the size
+  splitAsteroid(std::array<int, 2> position); // using std::array instead of
+                                              // vector, because of the size
 };
 
 class Projectile : public MovableObject {
@@ -90,6 +91,8 @@ public:
   void addingAge();
 
   void alive();
+
+  int getId();
 };
 
 class Ship : public MovableObject {
@@ -104,12 +107,15 @@ private:
   char icon = 'A';
   Orientation orientation = FacingUp;
   int lifes = 3;
-  int id; // This is usesless at the end, LMAO
+  int id;
+  int score;
 
 public:
   Ship(int id, int x_dis, int y_dis);
   // Take life points
   void takeOutLife();
+
+  void addScore();
 
   void lookUp();
 
@@ -120,7 +126,8 @@ public:
   void lookRight();
 
   int getLife();
-
+  int getScore();
+  int getId();
   // Create instance of a Projectile
   Projectile *fire();
 };

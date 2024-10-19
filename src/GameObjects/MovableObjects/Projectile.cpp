@@ -28,3 +28,5 @@ void Projectile::alive() {
     destroy();
   }
 };
+
+int Projectile::getId() { return id; }

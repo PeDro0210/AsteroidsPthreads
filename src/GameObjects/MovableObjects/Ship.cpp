@@ -1,11 +1,13 @@
 #include "MovableObjects.h"
 
 Ship::Ship(int id, int x_dis, int y_dis)
-    : MovableObject(100 + x_dis, 35 + y_dis, FacingUp), id(id), lifes(3) {
+    : MovableObject(100 + x_dis, 35 + y_dis, FacingUp), id(id), lifes(3),
+      score(0) {
   setIcon('A');
 }
 
 void Ship::takeOutLife() { lifes--; };
+void Ship::addScore() { score = score + 10; }
 
 void Ship::lookUp() {
   setIcon('A');
@@ -32,7 +34,8 @@ void Ship::lookLeft() {
 }
 
 int Ship::getLife() { return lifes; }
-
+int Ship::getScore() { return score; }
+int Ship::getId() { return id; }
 // TODO: fix this, to follow the order of the orietantion as told
 Projectile *Ship::fire() {
   switch (getOrientation()) {

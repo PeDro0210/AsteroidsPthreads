@@ -35,7 +35,31 @@ void objectDestroyer(std::vector<MovableObject *> &object_to_destroy,
   object_to_destroy.clear(); // In case pointers are still in here
 }
 
-void overlapperChecker(std::vector<MovableObject *> &all_objects) {
+void pointAdder(MovableObject *object1, MovableObject *object2, Ship *ships[]) {
+
+  if ((dynamic_cast<Projectile *>(object1) &&
+       dynamic_cast<littleAsteroid *>(object2)) ||
+      (dynamic_cast<littleAsteroid *>(object1) &&
+       dynamic_cast<Projectile *>(object2))) {
+
+    Projectile *projectile = dynamic_cast<Projectile *>(object1)
+                                 ? dynamic_cast<Projectile *>(object1)
+                                 : dynamic_cast<Projectile *>(object2);
+
+    littleAsteroid *asteroid = dynamic_cast<littleAsteroid *>(object1)
+                                   ? dynamic_cast<littleAsteroid *>(object1)
+                                   : dynamic_cast<littleAsteroid *>(object2);
+
+    if (asteroid->isDestroyed())
+      return;
+
+    ships[projectile->getId()]->addScore();
+  }
+}
+
+void overlapperChecker(std::vector<MovableObject *> &all_objects,
+                       Ship *ships[]) {
+
   for (MovableObject *object1 : all_objects) {
     for (MovableObject *object2 : all_objects) {
       if (object1 == object2) {
@@ -54,6 +78,7 @@ void overlapperChecker(std::vector<MovableObject *> &all_objects) {
 
       // Check if both share coordinates
       if (object1->getPos() == object2->getPos()) {
+        pointAdder(object1, object2, ships);
         object1->destroy();
         object2->destroy();
       }
