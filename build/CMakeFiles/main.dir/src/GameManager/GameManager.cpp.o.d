@@ -1,9 +1,10 @@
-CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.o: \
- /home/pedro0210/Projects/AsteroidsPthreads/src/GameObjects/MovableObjects/Ship.cpp \
+CMakeFiles/main.dir/src/GameManager/GameManager.cpp.o: \
+ /home/pedro0210/Projects/AsteroidsPthreads/src/GameManager/GameManager.cpp \
  /usr/include/stdc-predef.h \
- /home/pedro0210/Projects/AsteroidsPthreads/src/GameObjects/MovableObjects/MovableObjects.h \
- /home/pedro0210/Projects/AsteroidsPthreads/src/GameObjects/MovableObjects/../../GameManager/GameManager.h \
- /home/pedro0210/Projects/AsteroidsPthreads/src/GameObjects/MovableObjects/../Util/Util.h \
+ /home/pedro0210/Projects/AsteroidsPthreads/src/GameManager/FunctionManager.h \
+ /home/pedro0210/Projects/AsteroidsPthreads/src/GameManager/../GameObjects/MovableObjects/MovableObjects.h \
+ /home/pedro0210/Projects/AsteroidsPthreads/src/GameManager/../GameObjects/MovableObjects/../../GameManager/GameManager.h \
+ /home/pedro0210/Projects/AsteroidsPthreads/src/GameManager/../GameObjects/MovableObjects/../Util/Util.h \
  /usr/include/curses.h /usr/include/ncurses_dll.h \
  /usr/lib/gcc/x86_64-redhat-linux/14/include/stdint.h \
  /usr/include/stdint.h /usr/include/bits/libc-header-start.h \
@@ -109,4 +110,13 @@ CMakeFiles/main.dir/src/GameObjects/MovableObjects/Ship.cpp.o: \
  /usr/include/c++/14/bits/stl_uninitialized.h \
  /usr/include/c++/14/bits/stl_vector.h \
  /usr/include/c++/14/bits/stl_bvector.h \
- /usr/include/c++/14/bits/vector.tcc
+ /usr/include/c++/14/bits/vector.tcc /usr/include/c++/14/algorithm \
+ /usr/include/c++/14/bits/stl_algo.h \
+ /usr/include/c++/14/bits/algorithmfwd.h \
+ /usr/include/c++/14/bits/stl_heap.h \
+ /usr/include/c++/14/bits/uniform_int_dist.h \
+ /usr/include/c++/14/bits/stl_tempbuf.h \
+ /usr/include/c++/14/bits/ranges_algo.h \
+ /usr/include/c++/14/bits/ranges_algobase.h \
+ /usr/include/c++/14/pstl/glue_algorithm_defs.h \
+ /usr/include/c++/14/pstl/execution_defs.h

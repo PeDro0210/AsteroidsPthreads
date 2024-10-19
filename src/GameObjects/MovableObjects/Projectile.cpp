@@ -23,4 +23,8 @@ void Projectile::addingAge() {
   age += delta_time;
 }
 
-bool Projectile::alive() { return age < life_time; }
+void Projectile::alive() {
+  if (age >= life_time) {
+    destroy();
+  }
+};

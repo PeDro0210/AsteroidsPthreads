@@ -1,10 +1,8 @@
 #include "../../Ui/Util/ScreenSettingsInit.h"
 #include "MovableObjects.h"
-
+#include <array>
 MovableObject::MovableObject(int x, int y, Orientation orientation)
     : x_pos(x), y_pos(y), orientation(orientation), settings(settingsSetup()) {}
-
-MovableObject::~MovableObject() {}
 
 void MovableObject::keepOnLimits() {
   if (x_pos < settings->startX + 1) {
@@ -43,6 +41,7 @@ void MovableObject::MoveFoward() {
   }
   keepOnLimits();
 }
+void MovableObject::unDestroyed() { destroyed = false; }
 
 void MovableObject::destroy() { destroyed = true; }
 
@@ -55,3 +54,5 @@ void MovableObject::erase(int latest_x, int latest_y) {
 std::array<int, 2> MovableObject::getPos() { return {x_pos, y_pos}; }
 
 Orientation MovableObject::getOrientation() { return orientation; }
+
+bool MovableObject::isDestroyed() { return destroyed; }

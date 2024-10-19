@@ -1,3 +1,4 @@
+#include "GameManager/FunctionManager.h"
 #include "GameObjects/MovableObjects/MovableObjects.h"
 #include "Ui/Ui.h"
 #include <cstddef>
@@ -9,32 +10,49 @@
 pthread_mutex_t print_mutex;
 
 int scores[2] = {0, 0};
-std::vector<MovableObject *> all_objects; // For checking collisions
-Ship *debug_ship;                         // Now it can be acces everywhere
+std::vector<MovableObject *> all_objects; // for checking collisions
 std::vector<Projectile *> projectile_ship1;
+std::vector<MovableObject *> objects_to_destroy;
 std::vector<Asteroid *> asteroids;
-// Initialize the global ship
-void initializeShip() { debug_ship = new Ship(1, 10, 10); }
+Ship *debug_ship;
+// init the ship
 
-void initializeAsteroids() {
-  for (int i = 0; i <= (rand() % 5) + 1; i++) {
-    asteroids.push_back(new bigAsteroid());
+void initializeShip() {
+  debug_ship = new Ship(1, 10, 10);
+  all_objects.push_back(debug_ship);
+}
+
+void initializeAsteroidsNormalMode() {
+  for (int i = 0; i <= 3; i++) {
+    bigAsteroid *asteroid = new bigAsteroid();
+    all_objects.push_back(asteroid);
+    asteroids.push_back(asteroid);
   }
 }
-/* TODO: beside calling all the functions
- * for keeping the score, seeing if objects are overlapping
- */
+
+void initializeAsteroidsTwoPlayers() {
+  for (int i = 0; i <= 5; i++) {
+    bigAsteroid *asteroid = new bigAsteroid();
+    all_objects.push_back(asteroid);
+    asteroids.push_back(asteroid);
+  }
+}
 
 void *uiRenderLoop(void *arg) {
   auto *ui_manager = new UiManagers();
 
   while (true) {
-    pthread_mutex_lock(&print_mutex);
-    ui_manager->gameDisplay();
-    ui_manager->scoreDisplay(scores);
-    //* Putting all the code for the logic
-    refresh();
-    pthread_mutex_unlock(&print_mutex);
+    if (debug_ship->getLife() >= 0) {
+
+      pthread_mutex_lock(&print_mutex);
+      ui_manager->gameDisplay();
+      ui_manager->scoreDisplay(scores);
+      int lifes[2] = {debug_ship->getLife(), 0};
+      ui_manager->lifeDisplay(lifes);
+      //* Putting all the code for the logic
+      refresh();
+      pthread_mutex_unlock(&print_mutex);
+    }
 
     usleep(33333);
   }
@@ -58,7 +76,6 @@ void *playerRenderLoop(void *) {
     lastY = debug_ship->getPos()[1];
 
     // Temporary storage for projectiles to remove
-    std::vector<Projectile *> projectilesToRemove;
 
     for (Projectile *projectile : projectile_ship1) {
       all_objects.push_back(projectile);
@@ -69,32 +86,31 @@ void *playerRenderLoop(void *) {
                         lastY_projectile); // Erase from the previous position
       projectile->MoveFoward();            // Move the projectile forward
       projectile->addingAge();
+      projectile->alive();
 
-      if (projectile->alive()) {
+      if (!projectile->isDestroyed()) {
         projectile->render(); // Render at the new position
       } else {
-        projectilesToRemove.push_back(projectile); // Mark for removal
+        objects_to_destroy.push_back(projectile); // Mark for removal
       }
     }
 
-    for (Projectile *projectile : projectilesToRemove) {
-      delete projectile; // Free memory if dynamically allocated
-
-      all_objects.erase(
-          std::remove(all_objects.begin(), all_objects.end(), projectile),
-          all_objects
-              .end()); // idunno, someone gave me this method. Not saying names
-
-      projectile_ship1.erase(std::remove(projectile_ship1.begin(),
-                                         projectile_ship1.end(), projectile),
-                             projectile_ship1.end());
+    if (debug_ship->isDestroyed()) {
+      debug_ship->takeOutLife();
+      debug_ship->unDestroyed();
+      if (debug_ship->getLife() <= 0) {
+      }
     }
 
-    refresh(); // Refresh the display
+    overlapperChecker(all_objects);
+    objectDestroyer(objects_to_destroy, all_objects, projectile_ship1,
+                    asteroids);
 
-    pthread_mutex_unlock(&print_mutex); // Unlock the mutex
+    refresh();
 
-    usleep(100000); // Sleep for 100 milliseconds
+    pthread_mutex_unlock(&print_mutex);
+
+    usleep(100000);
   }
   return nullptr;
 }
@@ -102,8 +118,9 @@ void *asteroidsRenderLoop(void *arg) {
 
   while (true) {
 
-    // TODO: use barrier when the overlapping function is done
     pthread_mutex_lock(&print_mutex);
+    objectDestroyer(objects_to_destroy, all_objects, projectile_ship1,
+                    asteroids);
     // DEBUGGING
     for (Asteroid *asteroid : asteroids) {
       int lastX = asteroid->getPos()[0];
@@ -112,7 +129,20 @@ void *asteroidsRenderLoop(void *arg) {
       asteroid->erase(lastX, lastY);
       asteroid->MoveFoward();
       asteroid->render();
+
+      if (asteroid->isDestroyed()) {
+        if (bigAsteroid *bigAst = dynamic_cast<bigAsteroid *>(asteroid)) {
+          std::array<littleAsteroid *, 2> newAsteroids =
+              bigAst->splitAsteroid();
+          for (littleAsteroid *little : newAsteroids) {
+            asteroids.push_back(little);
+            all_objects.push_back(little);
+          }
+        }
+        objects_to_destroy.push_back(asteroid);
+      }
     }
+
     // DEBUGGING
     refresh();
     //* Putting all the code for the logic
@@ -184,7 +214,7 @@ int main() {
 
   srand(static_cast<unsigned int>(time(0)));
   initializeShip();
-  initializeAsteroids();
+  initializeAsteroidsNormalMode();
 
   all_objects.push_back(debug_ship);
 

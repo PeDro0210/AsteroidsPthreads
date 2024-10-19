@@ -13,7 +13,9 @@ add_executable(
   src/GameObjects/MovableObjects/Ship.cpp
   src/Ui/Util/ScreenSettingsInit.cpp
   src/GameObjects/MovableObjects/Projectile.cpp
-  src/GameObjects/MovableObjects/Asteroids.cpp)
+  src/GameObjects/MovableObjects/Asteroids.cpp
+  src/GameManager/GameManager.cpp
+)
 
 target_link_libraries(main PRIVATE pthread)
 target_link_libraries(main PRIVATE ncurses)

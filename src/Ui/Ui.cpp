@@ -1,5 +1,6 @@
 #include "Ui.h"
 #include "Util/ScreenSettingsInit.h"
+#include <ncurses.h>
 UiManagers::UiManagers() : settings(settingsSetup()) {}
 
 void UiManagers::gameDisplay() {
@@ -32,5 +33,12 @@ void UiManagers::scoreDisplay(int scores[]) {
   for (int i = 0; i < 2; i++) {
     mvwprintw(stdscr, settings->startY - 2 + i, settings->startX,
               "Score %d: %d", i + 1, scores[i]);
+  }
+}
+
+void UiManagers::lifeDisplay(int life[]) {
+  for (int i = 0; i < 2; i++) { // 1 is for debugging purposes
+    mvwprintw(stdscr, settings->startY - 2 + i, settings->startX + 20,
+              "Life %d: %d", i + 1, life[i]);
   }
 }

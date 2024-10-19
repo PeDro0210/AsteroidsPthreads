@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/main.dir/src/GameManager/GameManager.cpp.o"
+  "CMakeFiles/main.dir/src/GameManager/GameManager.cpp.o.d"
   "CMakeFiles/main.dir/src/GameObjects/MovableObjects/Asteroids.cpp.o"
   "CMakeFiles/main.dir/src/GameObjects/MovableObjects/Asteroids.cpp.o.d"
   "CMakeFiles/main.dir/src/GameObjects/MovableObjects/MovableObject.cpp.o"

@@ -4,6 +4,7 @@
 #include "../../GameManager/GameManager.h"
 #include "../Util/Util.h"
 #include "ncurses.h"
+#include <array>
 #include <string>
 #include <vector>
 
@@ -24,7 +25,7 @@ public:
   // Constructor
   MovableObject(int x, int y, Orientation orientation);
 
-  ~MovableObject();
+  virtual ~MovableObject(){};
 
   // For managing the position
   void MoveFoward();
@@ -41,7 +42,9 @@ public:
   void destroy();
 
   // The getter for destroyed status
-  bool isDestroyed() const;
+  bool isDestroyed();
+
+  void unDestroyed();
 
   // render the icon
   void render();
@@ -86,7 +89,7 @@ public:
              int y_pos); // And use the super Constructor
   void addingAge();
 
-  bool alive();
+  void alive();
 };
 
 class Ship : public MovableObject {
@@ -101,7 +104,7 @@ private:
   char icon = 'A';
   Orientation orientation = FacingUp;
   int lifes = 3;
-  int id;
+  int id; // This is usesless at the end, LMAO
 
 public:
   Ship(int id, int x_dis, int y_dis);
@@ -115,6 +118,8 @@ public:
   void lookLeft();
 
   void lookRight();
+
+  int getLife();
 
   // Create instance of a Projectile
   Projectile *fire();

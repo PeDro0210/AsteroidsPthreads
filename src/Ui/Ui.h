@@ -12,6 +12,7 @@ public:
   UiManagers(); // Cause of the thredas
   void gameDisplay();
   void scoreDisplay(int scores[]);
+  void lifeDisplay(int life[]);
 };
 
 #endif // !UI

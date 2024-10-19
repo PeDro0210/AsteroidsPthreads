@@ -31,6 +31,8 @@ void Ship::lookLeft() {
   MoveFoward();
 }
 
+int Ship::getLife() { return lifes; }
+
 // TODO: fix this, to follow the order of the orietantion as told
 Projectile *Ship::fire() {
   switch (getOrientation()) {

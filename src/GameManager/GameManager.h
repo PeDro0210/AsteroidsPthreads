@@ -1,7 +1,5 @@
-#ifndef GAME_MANAGER
+#ifndef GAME_MANAGER // can't touch this, all everything breaks LMAO
 #define GAME_MANAGER
-
-#include <vector>
 
 struct screenSettings {
   int startX;
@@ -12,13 +10,5 @@ struct screenSettings {
   screenSettings(int x, int y, int width, int height)
       : startX(x), startY(y), boxWidth(width), boxHeight(height) {}
 };
-
-// TODO:make overlapping function
-
-void pointSetters(int id);
-
-void firstMode();
-
-void secondMode();
 
 #endif // GAME_MANAGER
