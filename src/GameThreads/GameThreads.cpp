@@ -86,7 +86,7 @@ void *playerRenderLoop(void *arg) {
   while (true) {
     pthread_mutex_lock(&print_mutex);
 
-    if (ship != nullptr) {
+    if (ship != nullptr) { // just in case LMAO
       ship->erase(lastX, lastY);
       ship->render();
 
