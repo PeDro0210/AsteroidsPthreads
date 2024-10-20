@@ -1,6 +1,4 @@
 #include "GameThreads.h"
-#define _XOPEN_SOURCE 600
-#include "pthread.h"
 
 void *uiRenderLoopScreen1(void *arg) {
   UiManagers *ui_manager = new UiManagers();
@@ -88,59 +86,58 @@ void *playerRenderLoop(void *arg) {
   while (true) {
     pthread_mutex_lock(&print_mutex);
 
-    ship->erase(lastX, lastY);
-    ship->render();
-
-    // get the latest position in the newest iteration
     if (ship != nullptr) {
+      ship->erase(lastX, lastY);
+      ship->render();
+
+      // get the latest position in the newest iteration
       lastX = ship->getPos()[0];
       lastY = ship->getPos()[1];
-    }
-    std::vector<Projectile *> projectile_ship;
+      std::vector<Projectile *> projectile_ship;
 
-    // Sees the id of the ship, for pushing the projectiles
-    if (ship->getId() == 0) {
-      projectile_ship = projectile_ship1;
-    } else {
-      projectile_ship = projectile_ship2;
-    }
+      // Sees the id of the ship, for pushing the projectiles
+      if (ship->getId() == 0) {
+        projectile_ship = projectile_ship1;
+      } else {
+        projectile_ship = projectile_ship2;
+      }
 
-    overlapperChecker(all_objects, ships); // all it's ass function
+      overlapperChecker(all_objects, ships); // all it's ass function
 
-    objectDestroyer(objects_to_destroy, all_objects, projectile_ship,
-                    asteroids);
+      objectDestroyer(objects_to_destroy, all_objects, projectile_ship,
+                      asteroids);
 
-    for (Projectile *projectile : projectile_ship) {
-      if (projectile != nullptr) {
-        all_objects.push_back(projectile);
-        int lastX_projectile = projectile->getPos()[0];
-        int lastY_projectile = projectile->getPos()[1];
+      for (Projectile *projectile : projectile_ship) {
+        if (projectile != nullptr) {
+          all_objects.push_back(projectile);
+          int lastX_projectile = projectile->getPos()[0];
+          int lastY_projectile = projectile->getPos()[1];
 
-        projectile->erase(lastX_projectile, lastY_projectile);
-        projectile->MoveFoward();
-        projectile->addingAge();
-        projectile->alive(); // makes it older, for dying
+          projectile->erase(lastX_projectile, lastY_projectile);
+          projectile->MoveFoward();
+          projectile->addingAge();
+          projectile->alive(); // makes it older, for dying
 
-        if (!projectile->isDestroyed()) {
-          projectile->render();
-        } else {
-          objects_to_destroy.push_back(projectile);
+          if (!projectile->isDestroyed()) {
+            projectile->render();
+          } else {
+            objects_to_destroy.push_back(projectile);
+          }
         }
       }
+
+      /*
+       * kinda of a trick in here, by Destroying it, we can go trough most of
+       * the rules of the other movableobjects, but it has more chances, soo
+       * whenever it destroys, it just takes out a life
+       */
+      if (ship->isDestroyed()) {
+        ship->takeOutLife();
+        ship->unDestroyed();
+      }
+
+      refresh();
     }
-
-    /*
-     * kinda of a trick in here, by Destroying it, we can go trough most of the
-     * rules of the other movableobjects, but it has more chances, soo whenever
-     * it destroys, it just takes out a life
-     */
-    if (ship->isDestroyed()) {
-      ship->takeOutLife();
-      ship->unDestroyed();
-    }
-
-    refresh();
-
     pthread_mutex_unlock(&print_mutex);
 
     usleep(100000); // Sleep for 100ms

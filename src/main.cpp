@@ -34,6 +34,7 @@ int main() {
   noecho();
   timeout(0);
   curs_set(0);
+  nodelay(stdscr, TRUE);
   keypad(stdscr, TRUE);
 
   pthread_mutex_init(&print_mutex, NULL);
