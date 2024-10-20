@@ -21,7 +21,7 @@ void *inputPlayer1Loop(void *arg) {
       ship->lookRight();
     }
 
-    if (ch == ' ') {
+    if (ch == 'e') {
       projectile_ship1.push_back(ship->fire());
     }
 
@@ -53,7 +53,7 @@ void *inputPlayer2Loop(void *arg) {
       ship->lookRight();
     }
 
-    if (ch == 'p') { // This shitty asf, why not an enum for enter
+    if (ch == 'o') { // This shitty asf, why not an enum for enter
       projectile_ship2.push_back(ship->fire());
     }
 

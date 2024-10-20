@@ -53,7 +53,16 @@ void MovableObject::erase(int latest_x, int latest_y) {
   mvaddch(latest_y, latest_x, ' ');
 }
 
-std::array<int, 2> MovableObject::getPos() { return {x_pos, y_pos}; }
+std::array<int, 2> MovableObject::getPos() {
+
+  try {
+    return {x_pos, y_pos};
+
+  } catch (const std::exception &e) { // for the bug where it access but it
+                                      // tries to access a null ptr
+    return {0, 0};
+  }
+}
 
 Orientation MovableObject::getOrientation() { return orientation; }
 

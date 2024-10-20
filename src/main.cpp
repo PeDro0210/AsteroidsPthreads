@@ -1,5 +1,7 @@
 #include "GameThreads/GameThreads.h"
+#include "Init/Init.h"
 #include "PlayerInputs/PlayerInputs.h"
+#include <pthread.h>
 
 /*
  * Still some issues, for some reason there's a race condition when you first
@@ -12,8 +14,7 @@
  */
 
 /*
- *TODO: fix the race condition issue
- * fix that when ship2 shoots, it gives player to ship1
+ *TODO:
  * implement another way for moving ship2, just ship2
  *
  */
@@ -59,7 +60,6 @@ int main() {
   // Threads that always will happen
   pthread_create(&asteroid_render_thread, NULL, asteroidsRenderLoop, NULL);
   pthread_create(&ship_render_thread[0], NULL, playerRenderLoop, ships[0]);
-  pthread_create(&ship_render_thread[0], NULL, playerRenderLoop, ships[0]);
   pthread_create(&player_threads[0], NULL, inputPlayer1Loop, ships[0]);
 
   if (selection == 1) { // creating specific threads
@@ -83,7 +83,6 @@ int main() {
   pthread_join(asteroid_render_thread, NULL);
 
   pthread_mutex_destroy(&print_mutex);
-  delete ui_manager;
-  endwin(); // for ncurses
+
   return 0;
 }

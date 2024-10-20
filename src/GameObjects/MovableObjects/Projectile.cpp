@@ -1,7 +1,7 @@
 #include "MovableObjects.h"
 
 Projectile::Projectile(int id, Orientation orientation, int x_pos, int y_pos)
-    : MovableObject(x_pos, y_pos, orientation) {
+    : MovableObject(x_pos, y_pos, orientation), id(id) {
   switch (orientation) {
   case FacingUp:
     setIcon('|');

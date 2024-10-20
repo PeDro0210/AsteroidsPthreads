@@ -12,8 +12,8 @@ class MovableObject {
 protected:
   char icon = 'x';
   Orientation orientation;
-  int x_pos;
-  int y_pos;
+  int x_pos = 0;
+  int y_pos = 0;
   bool destroyed = false;
   screenSettings *settings;
 

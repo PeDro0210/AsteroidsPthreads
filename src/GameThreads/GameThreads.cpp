@@ -1,4 +1,6 @@
 #include "GameThreads.h"
+#define _XOPEN_SOURCE 600
+#include "pthread.h"
 
 void *uiRenderLoopScreen1(void *arg) {
   UiManagers *ui_manager = new UiManagers();
@@ -64,21 +66,25 @@ void *uiRenderLoopScreen2(void *arg) {
 void *playerRenderLoop(void *arg) {
   // TODO:RECOMMENT
   Ship *ship = static_cast<Ship *>(arg);
-
   /*
    * A bug occured, where the ship didn't spawn on the limits of the screen,
-   * and for some reason while not being in the limits the takeOutLife method
-   * keept calling itself, so by moving it foward, the ship appears again in the
-   * screen with the keepOnLimits method.
+   * and for some reason while not being in the limits the takeOutLife
+   * method keept calling itself, so by moving it foward, the ship appears
+   * again in the screen with the keepOnLimits method.
    *
    * Fix :D
    */
+
   ship->MoveFoward();
+  int lastX = 0; // need to keep track of the last position,
+                 // if not it keeps a trail
+  int lastY = 0;
 
-  int lastX = ship->getPos()[0]; // need to keep track of the last position, if
-                                 // not it keeps a trail
-  int lastY = ship->getPos()[1];
-
+  if (ship != nullptr) {
+    int lastX = ship->getPos()[0]; // need to keep track of the last position,
+                                   // if not it keeps a trail
+    int lastY = ship->getPos()[1];
+  }
   while (true) {
     pthread_mutex_lock(&print_mutex);
 
@@ -86,37 +92,40 @@ void *playerRenderLoop(void *arg) {
     ship->render();
 
     // get the latest position in the newest iteration
-    lastX = ship->getPos()[0];
-    lastY = ship->getPos()[1];
-
+    if (ship != nullptr) {
+      lastX = ship->getPos()[0];
+      lastY = ship->getPos()[1];
+    }
     std::vector<Projectile *> projectile_ship;
 
     // Sees the id of the ship, for pushing the projectiles
     if (ship->getId() == 0) {
       projectile_ship = projectile_ship1;
-      objectDestroyer(objects_to_destroy, all_objects, projectile_ship,
-                      asteroids);
     } else {
       projectile_ship = projectile_ship2;
-      objectDestroyer(objects_to_destroy, all_objects, projectile_ship,
-                      asteroids);
     }
 
+    overlapperChecker(all_objects, ships); // all it's ass function
+
+    objectDestroyer(objects_to_destroy, all_objects, projectile_ship,
+                    asteroids);
+
     for (Projectile *projectile : projectile_ship) {
+      if (projectile != nullptr) {
+        all_objects.push_back(projectile);
+        int lastX_projectile = projectile->getPos()[0];
+        int lastY_projectile = projectile->getPos()[1];
 
-      all_objects.push_back(projectile);
-      int lastX_projectile = projectile->getPos()[0];
-      int lastY_projectile = projectile->getPos()[1];
+        projectile->erase(lastX_projectile, lastY_projectile);
+        projectile->MoveFoward();
+        projectile->addingAge();
+        projectile->alive(); // makes it older, for dying
 
-      projectile->erase(lastX_projectile, lastY_projectile);
-      projectile->MoveFoward();
-      projectile->addingAge();
-      projectile->alive(); // makes it older, for dying
-
-      if (!projectile->isDestroyed()) {
-        projectile->render();
-      } else {
-        objects_to_destroy.push_back(projectile);
+        if (!projectile->isDestroyed()) {
+          projectile->render();
+        } else {
+          objects_to_destroy.push_back(projectile);
+        }
       }
     }
 
@@ -128,10 +137,8 @@ void *playerRenderLoop(void *arg) {
     if (ship->isDestroyed()) {
       ship->takeOutLife();
       ship->unDestroyed();
-      all_objects.push_back(ship);
     }
 
-    overlapperChecker(all_objects, ships); // all it's ass function
     refresh();
 
     pthread_mutex_unlock(&print_mutex);
@@ -142,33 +149,37 @@ void *playerRenderLoop(void *arg) {
   return nullptr;
 }
 void *asteroidsRenderLoop(void *arg) {
+  int lastX = 0;
+  int lastY = 0;
 
   while (true) {
 
     pthread_mutex_lock(&print_mutex);
     for (Asteroid *asteroid : asteroids) {
 
-      int lastX = asteroid->getPos()[0];
-      int lastY = asteroid->getPos()[1];
+      if (asteroid != nullptr) {
+        int lastX = asteroid->getPos()[0]; // both of them are the issue
+        int lastY = asteroid->getPos()[1]; // both of them are the issue
 
-      asteroid->erase(lastX, lastY);
-      asteroid->MoveFoward();
-      asteroid->render();
+        asteroid->erase(lastX, lastY);
+        asteroid->MoveFoward();
+        asteroid->render();
 
-      if (asteroid->isDestroyed()) {
-        if (bigAsteroid *bigAst = dynamic_cast<bigAsteroid *>(
-                asteroid)) { // If the asteroid can be cast to a bigAsteroid
-                             //
-          std::array<littleAsteroid *, 2> newAsteroids =
-              bigAst->splitAsteroid(asteroid->getPos()); // do the split
+        if (asteroid->isDestroyed()) {
+          if (bigAsteroid *bigAst = dynamic_cast<bigAsteroid *>(
+                  asteroid)) { // If the asteroid can be cast to a bigAsteroid
+                               //
+            std::array<littleAsteroid *, 2> newAsteroids =
+                bigAst->splitAsteroid(asteroid->getPos()); // do the split
 
-          for (littleAsteroid *little : newAsteroids) {
+            for (littleAsteroid *little : newAsteroids) {
 
-            asteroids.push_back(little);
-            all_objects.push_back(little);
+              asteroids.push_back(little);
+              all_objects.push_back(little);
+            }
           }
+          objects_to_destroy.push_back(asteroid);
         }
-        objects_to_destroy.push_back(asteroid);
       }
     }
     refresh();
