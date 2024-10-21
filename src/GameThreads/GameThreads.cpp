@@ -139,8 +139,7 @@ void *playerRenderLoop(void *arg) {
                                              //
     }
     pthread_mutex_unlock(&print_mutex);
-
-    usleep(100000); // Sleep for 100ms
+    usleep(33333);
   }
 
   return nullptr;
