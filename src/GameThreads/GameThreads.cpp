@@ -102,11 +102,6 @@ void *playerRenderLoop(void *arg) {
         projectile_ship = projectile_ship2;
       }
 
-      overlapperChecker(all_objects, ships); // all it's ass function
-
-      objectDestroyer(objects_to_destroy, all_objects, projectile_ship,
-                      asteroids);
-
       for (Projectile *projectile : projectile_ship) {
         if (projectile != nullptr) {
           all_objects.push_back(projectile);
@@ -123,6 +118,7 @@ void *playerRenderLoop(void *arg) {
           } else {
             objects_to_destroy.push_back(projectile);
           }
+          refresh();
         }
       }
 
@@ -136,7 +132,11 @@ void *playerRenderLoop(void *arg) {
         ship->unDestroyed();
       }
 
-      refresh();
+      objectDestroyer(objects_to_destroy, all_objects, projectile_ship,
+                      asteroids);
+
+      overlapperChecker(all_objects, ships); // all it's ass function
+                                             //
     }
     pthread_mutex_unlock(&print_mutex);
 
@@ -145,6 +145,7 @@ void *playerRenderLoop(void *arg) {
 
   return nullptr;
 }
+
 void *asteroidsRenderLoop(void *arg) {
   int lastX = 0;
   int lastY = 0;
@@ -158,14 +159,17 @@ void *asteroidsRenderLoop(void *arg) {
         int lastX = asteroid->getPos()[0]; // both of them are the issue
         int lastY = asteroid->getPos()[1]; // both of them are the issue
 
-        asteroid->erase(lastX, lastY);
-        asteroid->MoveFoward();
-        asteroid->render();
+        if (!asteroid->isDestroyed()) {
+          asteroid->erase(lastX, lastY);
+          asteroid->MoveFoward();
+          asteroid->render();
+          refresh();
+        }
 
         if (asteroid->isDestroyed()) {
           if (bigAsteroid *bigAst = dynamic_cast<bigAsteroid *>(
                   asteroid)) { // If the asteroid can be cast to a bigAsteroid
-                               //
+
             std::array<littleAsteroid *, 2> newAsteroids =
                 bigAst->splitAsteroid(asteroid->getPos()); // do the split
 
@@ -179,7 +183,6 @@ void *asteroidsRenderLoop(void *arg) {
         }
       }
     }
-    refresh();
     pthread_mutex_unlock(&print_mutex);
 
     usleep(99999);
