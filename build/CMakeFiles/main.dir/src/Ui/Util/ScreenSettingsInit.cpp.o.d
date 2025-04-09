@@ -1,64 +1,28 @@
 CMakeFiles/main.dir/src/Ui/Util/ScreenSettingsInit.cpp.o: \
-  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/Ui/Util/ScreenSettingsInit.cpp \
-  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/Ui/Util/ScreenSettingsInit.h \
-  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/Ui/Util/../Ui.h \
-  /Users/pedroavila/Projects/AsteroidsPthreadsImplementation/src/Ui/Util/../../GameManager/GameManager.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/ncurses.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/ncurses_dll.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/stdint.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__config \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__config_site \
-  /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdint.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/stdint.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_int8_t.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_int16_t.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_int32_t.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_int64_t.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/_types/_uint8_t.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/_types/_uint16_t.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/_types/_uint32_t.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/_types/_uint64_t.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/sys/_types.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/sys/cdefs.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/sys/_symbol_aliasing.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/sys/_posix_availability.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/machine/_types.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/arm/_types.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/sys/_pthread/_pthread_types.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_intptr_t.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_uintptr_t.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/_types/_intmax_t.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/_types/_uintmax_t.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/stdio.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/stdio.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/_stdio.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/Availability.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/AvailabilityVersions.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/AvailabilityInternal.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/AvailabilityInternalLegacy.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/_types.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_va_list.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/machine/types.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/arm/types.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_u_int8_t.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_u_int16_t.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_u_int32_t.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_u_int64_t.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_size_t.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_null.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/sys/stdio.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/_printf.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_seek_set.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/_ctermid.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_off_t.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/sys/_types/_ssize_t.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/AvailabilityMacros.h \
-  /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdarg.h \
-  /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stdarg_header_macro.h \
-  /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stdarg___gnuc_va_list.h \
-  /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stdarg_va_list.h \
-  /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stdarg_va_arg.h \
-  /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stdarg___va_copy.h \
-  /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stdarg_va_copy.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/unctrl.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/curses.h
+ /home/pedro0210/Projects/AsteroidsPthreads/src/Ui/Util/ScreenSettingsInit.cpp \
+ /usr/include/stdc-predef.h \
+ /home/pedro0210/Projects/AsteroidsPthreads/src/Ui/Util/ScreenSettingsInit.h \
+ /home/pedro0210/Projects/AsteroidsPthreads/src/Ui/Util/../Ui.h \
+ /home/pedro0210/Projects/AsteroidsPthreads/src/Ui/Util/../../GameManager/GameManager.h \
+ /usr/include/curses.h /usr/include/ncurses_dll.h \
+ /usr/lib/gcc/x86_64-redhat-linux/14/include/stdint.h \
+ /usr/include/stdint.h /usr/include/bits/libc-header-start.h \
+ /usr/include/features.h /usr/include/features-time64.h \
+ /usr/include/bits/wordsize.h /usr/include/bits/timesize.h \
+ /usr/include/sys/cdefs.h /usr/include/bits/long-double.h \
+ /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h \
+ /usr/include/bits/types.h /usr/include/bits/typesizes.h \
+ /usr/include/bits/time64.h /usr/include/bits/wchar.h \
+ /usr/include/bits/stdint-intn.h /usr/include/bits/stdint-uintn.h \
+ /usr/include/bits/stdint-least.h /usr/include/stdio.h \
+ /usr/lib/gcc/x86_64-redhat-linux/14/include/stddef.h \
+ /usr/lib/gcc/x86_64-redhat-linux/14/include/stdarg.h \
+ /usr/include/bits/types/__fpos_t.h /usr/include/bits/types/__mbstate_t.h \
+ /usr/include/bits/types/__fpos64_t.h /usr/include/bits/types/__FILE.h \
+ /usr/include/bits/types/FILE.h /usr/include/bits/types/struct_FILE.h \
+ /usr/include/bits/types/cookie_io_functions_t.h \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/floatn.h \
+ /usr/include/bits/floatn-common.h /usr/include/wchar.h \
+ /usr/include/bits/types/wint_t.h /usr/include/bits/types/mbstate_t.h \
+ /usr/include/bits/types/locale_t.h /usr/include/bits/types/__locale_t.h \
+ /usr/include/unctrl.h /usr/include/curses.h
